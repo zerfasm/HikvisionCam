@@ -1,0 +1,14 @@
+{
+    "translations": {
+        "de": {
+            "Camera Parameter": "Kamera Parameter",
+            "IP-Adress": "IP-Adresse",
+            "Camera Parameter": "Kamera Parameter",
+            "User": "Benutzer",
+            "Password": "Passwort",
+            "Number of Pictures": "Anzahl Bilder",
+            "Break": "Pause zwischen Bildern",
+            "Picture_Path": "Bildpfad:"		
+        }
+    }
+}
