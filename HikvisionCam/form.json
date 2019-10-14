@@ -3,10 +3,10 @@
     {"type": "ExpansionPanel", "caption": "Camera Parameter",
       "items": [
         {"type": "SelectVariable", "name": "IP", "caption": "IP-Adress:" },
-        {"type": "SelectVariable", "name": "Name", "caption": "Name:" },
-		{"type": "SelectVariable", "name": "User", "caption": "User:" },
+        {"type": "SelectVariable", "name": "Name", "caption": "Name Cam:" },
+	{"type": "SelectVariable", "name": "User", "caption": "User:" },
         {"type": "SelectVariable", "name": "Password", "caption": "Password:" },
-		{"type": "SelectVariable", "name": "ISAPI", "caption": "ISAPI:" },
+	{"type": "SelectVariable", "name": "ISAPI", "caption": "ISAPI:" },
         {"type": "SelectVariable", "name": "Preset", "caption": "Preset:" }		
 		
       ]
@@ -15,9 +15,9 @@
     {"type": "ExpansionPanel", "caption": "Snapshot",
       "items": [
         {"type": "SelectVariable", "name": "No_Picture", "caption": "Number of Pictures:" },
-        {"type": "SelectVariable", "name": "URL", "caption": "Humidity:" },
-		{"type": "SelectVariable", "name": "Break", "caption": "Break:" },
-		{"type": "SelectVariable", "name": "Picture_Path", "caption": "Path Pictures:" }
+        {"type": "SelectVariable", "name": "URL", "caption": "URL:" },
+	{"type": "SelectVariable", "name": "Break", "caption": "Break:" },
+	{"type": "SelectVariable", "name": "Picture_Path", "caption": "Path Pictures:" }
       ]
     }, 
   ],
