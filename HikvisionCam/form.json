@@ -7,8 +7,7 @@
 	{"type": "SelectVariable", "name": "User", "caption": "User:" },
         {"type": "SelectVariable", "name": "Password", "caption": "Password:" },
 	{"type": "SelectVariable", "name": "ISAPI", "caption": "ISAPI:" },
-        {"type": "SelectVariable", "name": "Preset", "caption": "Preset:" }		
-		
+        {"type": "SelectVariable", "name": "Preset", "caption": "Preset:" }			
       ]
     },
 	
