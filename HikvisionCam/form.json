@@ -19,5 +19,5 @@
 	{"type": "SelectVariable", "name": "Picture_Path", "caption": "Path Pictures:" }
       ]
     }, 
-  ],
+  ]
 }
