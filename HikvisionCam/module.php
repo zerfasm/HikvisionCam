@@ -6,18 +6,18 @@
 			//Never delete this line!
 			parent::Create();
 			// Camera Parameter
-        		$this->RegisterPropertyString('IP', 0);
-        		$this->RegisterPropertyString('Name', 0);
-        		$this->RegisterPropertyString('User', 0);
-        		$this->RegisterPropertyString('Password', 0);
-        		$this->RegisterPropertyString('ISAPI', 0);
-        		$this->RegisterPropertyString('Preset', 0);
+        		$this->RegisterPropertyString('IP', '');
+        		$this->RegisterPropertyString('Name', '');
+        		$this->RegisterPropertyString('User', '');
+        		$this->RegisterPropertyString('Password', '');
+        		$this->RegisterPropertyString('ISAPI', '');
+        		$this->RegisterPropertyString('Preset', '');
 			
 			// Snapshot Parameter
         		$this->RegisterPropertyInteger('No_Picture', 0);
-        		$this->RegisterPropertyString('URL', 0);
+        		$this->RegisterPropertyString('URL', '');
         		$this->RegisterPropertyInteger('Break', 0);
-        		$this->RegisterPropertyString('Picture_Path', 0);
+        		$this->RegisterPropertyString('Picture_Path', '');
 		}
 
 		public function Destroy()
