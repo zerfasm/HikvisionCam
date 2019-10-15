@@ -19,19 +19,18 @@
         		$this->RegisterPropertyString('URL', "http://192.168.2.62/Streaming/channels/1/picture");
         		$this->RegisterPropertyInteger('Break', 100);
         		$this->RegisterPropertyString('Picture_Path', "D:\Cams\");
-		}
+		};
 
 		public function Destroy()
 		{
 			//Never delete this line!
 			parent::Destroy();
-		}
+		};
 
 		public function ApplyChanges()
 		{
 			// Never delete this line!
 			parent::ApplyChanges();
-		 }
+		 };
 
 	}
-?>
