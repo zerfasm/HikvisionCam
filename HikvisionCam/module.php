@@ -28,8 +28,14 @@
 
 		public function ApplyChanges()
 		{
-			//Never delete this line!
+			// Never delete this line!
 			parent::ApplyChanges();
-		}
+			// Register message
+			$this->RegisterMessage(0, IPS_KERNELMESSAGE);
+			if (IPS_GetKernelRunlevel() == KR_READY) {
+			    // Check configuration
+			    $this->ValidateConfiguration();
+			}
+		 }
 
 	}
