@@ -2,21 +2,21 @@
   "elements": [
     {"type": "ExpansionPanel", "caption": "Camera Parameter",
       "items": [
-        {"type": "SelectVariable", "name": "IPAdress", "caption": "IP-Adress:" },
-        {"type": "SelectVariable", "name": "Name", "caption": "Name Cam:" },
-	{"type": "SelectVariable", "name": "UserName", "caption": "User:" },
-        {"type": "SelectVariable", "name": "UserPassword", "caption": "Password:" },
-	{"type": "SelectVariable", "name": "ISAPI", "caption": "ISAPI:" },
-        {"type": "SelectVariable", "name": "Preset", "caption": "Preset:" }
+        {"type": "ValidationTextBox", "name": "IPAdress", "caption": "IP-Adress:" },
+        {"type": "ValidationTextBox", "name": "Name", "caption": "Name Cam:" },
+	{"type": "ValidationTextBox", "name": "UserName", "caption": "User:" },
+        {"type": "ValidationTextBox", "name": "UserPassword", "caption": "Password:" },
+	{"type": "ValidationTextBox", "name": "ISAPI", "caption": "ISAPI:" },
+        {"type": "ValidationTextBox", "name": "Preset", "caption": "Preset:" }
       ]
     },
   
     {"type": "ExpansionPanel", "caption": "Snapshot",
       "items": [
-        {"type": "SelectVariable", "name": "No_Picture", "caption": "Number of Pictures:" },
-        {"type": "SelectVariable", "name": "URL", "caption": "URL:" },
-	{"type": "SelectVariable", "name": "Break", "caption": "Break:" },
-	{"type": "SelectVariable", "name": "Picture_Path", "caption": "Path Pictures:" }
+        {"type": "ValidationTextBox", "name": "No_Picture", "caption": "Number of Pictures:" },
+        {"type": "ValidationTextBox", "name": "URL", "caption": "URL:" },
+	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" },
+	{"type": "ValidationTextBox", "name": "Picture_Path", "caption": "Path Pictures:" }
       ]
     }
   ],
