@@ -6,18 +6,18 @@
 			//Never delete this line!
 			parent::Create();
 			// Camera Parameter
-        		$this->RegisterPropertyString('IP', '');
-        		$this->RegisterPropertyString('Name', '');
-        		$this->RegisterPropertyString('User', '');
-        		$this->RegisterPropertyString('Password', '');
-        		$this->RegisterPropertyString('ISAPI', '');
-        		$this->RegisterPropertyString('Preset', '');
+        		$this->RegisterPropertyString('IP', "192.168.2.62");
+        		$this->RegisterPropertyString('Name', "Hikvision Cam");
+        		$this->RegisterPropertyString('User', "admin");
+        		$this->RegisterPropertyString('Password', "");
+        		$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/2/goto");
+        		$this->RegisterPropertyString('Preset', "");
 			
 			// Snapshot Parameter
-        		$this->RegisterPropertyInteger('No_Picture', 0);
-        		$this->RegisterPropertyString('URL', '');
-        		$this->RegisterPropertyInteger('Break', 0);
-        		$this->RegisterPropertyString('Picture_Path', '');
+        		$this->RegisterPropertyInteger('No_Picture', 9);
+        		$this->RegisterPropertyString('URL', "http://192.168.2.62/Streaming/channels/1/picture");
+        		$this->RegisterPropertyInteger('Break', 100);
+        		$this->RegisterPropertyString('Picture_Path', "D:\Cams\");
 		}
 
 		public function Destroy()
@@ -30,12 +30,6 @@
 		{
 			// Never delete this line!
 			parent::ApplyChanges();
-			// Register message
-			$this->RegisterMessage(0, IPS_KERNELMESSAGE);
-			if (IPS_GetKernelRunlevel() == KR_READY) {
-			    // Check configuration
-			    $this->ValidateConfiguration();
-			}
 		 }
 
 	}
