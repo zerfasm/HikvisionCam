@@ -7,17 +7,23 @@
 	{"type": "SelectVariable", "name": "User", "caption": "User:" },
         {"type": "SelectVariable", "name": "Password", "caption": "Password:" },
 	{"type": "SelectVariable", "name": "ISAPI", "caption": "ISAPI:" },
-        {"type": "SelectVariable", "name": "Preset", "caption": "Preset:" }			
+        {"type": "SelectVariable", "name": "Preset", "caption": "Preset:" }
       ]
     },
-	
-    {"type": "ExpansionPanel", "caption": "Snapshot",
+  
+    {"type": "ExpansionPanel", "caption": "Advanced settings",
       "items": [
-        {"type": "SelectVariable", "name": "No_Picture", "caption": "Number of Pictures:" },
-        {"type": "SelectVariable", "name": "URL", "caption": "URL:" },
-	{"type": "SelectVariable", "name": "Break", "caption": "Break:" },
-	{"type": "SelectVariable", "name": "Picture_Path", "caption": "Path Pictures:" }
+        {"type": "SelectVariable", "name": "IP", "caption": "IP-Adress:" },
+        {"type": "SelectVariable", "name": "Name", "caption": "Name Cam:" },
+	{"type": "SelectVariable", "name": "User", "caption": "User:" },
+        {"type": "SelectVariable", "name": "Password", "caption": "Password:" },
+	{"type": "SelectVariable", "name": "ISAPI", "caption": "ISAPI:" },
+        {"type": "SelectVariable", "name": "Preset", "caption": "Preset:" }
       ]
-    }, 
+    }
+  ],
+  "actions": [
+    {"type": "Label", "caption": "Calculate values!" },
+    {"type": "Button", "caption": "BERECHNEN", "onClick": "AHC_Update($id);" }
   ]
 }
