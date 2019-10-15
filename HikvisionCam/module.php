@@ -18,7 +18,7 @@
         		$this->RegisterPropertyInteger('No_Picture', 9);
         		$this->RegisterPropertyString('URL', "http://192.168.2.62/Streaming/channels/1/picture");
         		$this->RegisterPropertyInteger('Break', 100);
-        		$this->RegisterPropertyString('Picture_Path', "D:\Cams\");
+        		$this->RegisterPropertyString('Picture_Path', "D:");
 		}
 
 		public function Destroy()
