@@ -41,4 +41,9 @@
 	$this->RegisterPropertyInteger('Break', 100);
 	$this->RegisterPropertyString('Picture_Path', "D:");
     }
+		
+    public function ApplyChanges()
+    {
+	    
+    }
 }
