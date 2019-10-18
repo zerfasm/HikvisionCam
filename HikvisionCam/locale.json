@@ -5,11 +5,13 @@
             "IP-Adress": "IP-Adresse",
             "Name Cam:": "Kameraname:",
             "Camera Parameter": "Kamera Parameter",
-            "User": "Benutzer",
-            "Password": "Passwort",
+            "User:": "Benutzer:",
+            "Password:": "Passwort:",
             "Number of Pictures": "Anzahl Bilder:",
-            "Break": "Pause zwischen Bildern",
-            "Path Pictures:": "Bildpfad:"		
+            "Break": "Pause zwischen Bildern:",
+            "Preset:": "Preset:",
+            "Path Pictures:": "Bildpfad:"
+            
         }
     }
 }
