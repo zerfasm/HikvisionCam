@@ -42,11 +42,12 @@
 	$this->RegisterPropertyString('Picture_Path', "D:");
 	    
 	// Messenger Parameter
-	$this->RegisterPropertyInteger('ID_Messenge', 0);
+	$this->RegisterPropertyInteger('ID_Messenger', 0);
     }
 		
     public function ApplyChanges()
     {
-	    
+	//Never delete this line!
+        parent::ApplyChanges();    
     }
 }
