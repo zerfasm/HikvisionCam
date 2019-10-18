@@ -22,7 +22,7 @@
     
     {"type": "ExpansionPanel", "caption": "Telegram Messenger",
       "items": [
-        {"type": "SelectVariable", "name": "ID_Messenger", "caption": "Instance Messenger:" },
+        {"type": "SelectInstance", "name": "ID_Messenger", "caption": "Instance Messenger:" },
         {"type": "CheckBox", "name": "Switch_Messenger", "caption": "Switch Messenger:" }
       ]
     }
