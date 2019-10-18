@@ -21,7 +21,7 @@
     }
   ],
   "actions": [
-    {"type": "Label", "caption": "Calculate values!" },
-    {"type": "Button", "caption": "BERECHNEN", "onClick": "AHC_Update($id);" }
+    {"type": "Label", "caption": "Snapshot erstellen!" },
+    {"type": "Button", "caption": "SNAPSHOT", "onClick": "AHC_Update($id);" }
   ]
 }
