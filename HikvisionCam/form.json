@@ -19,6 +19,13 @@
 	{"type": "ValidationTextBox", "name": "Picture_Path", "caption": "Path Pictures:" }
       ]
     }
+    
+	  {"type": "ExpansionPanel", "caption": "Telegram Messenger",
+      "items": [
+        {"type": "ValidationTextBox", "name": "ID_Messenger", "caption": "Instance Messenger:" },
+        {"type": "ValidationTextBox", "name": "Switch_Messenger", "caption": "Switch_Messenger:" }
+      ]
+    }
   ],
   "actions": [
     {"type": "Label", "caption": "Snapshot erstellen!" },
