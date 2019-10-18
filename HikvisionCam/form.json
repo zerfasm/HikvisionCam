@@ -18,9 +18,9 @@
 	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" },
 	{"type": "ValidationTextBox", "name": "Picture_Path", "caption": "Path Pictures:" }
       ]
-    }
+    },
     
-	  {"type": "ExpansionPanel", "caption": "Telegram Messenger",
+    {"type": "ExpansionPanel", "caption": "Telegram Messenger",
       "items": [
         {"type": "SelectVariable", "name": "ID_Messenger", "caption": "Instance Messenger:" },
         {"type": "CheckBox", "name": "Switch_Messenger", "caption": "Switch Messenger:" }
