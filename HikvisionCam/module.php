@@ -42,7 +42,7 @@
 	$this->RegisterPropertyString('Picture_Path', "D:");
 	    
 	// Messenger Parameter
-	$this->RegisterPropertyInteger('Telegram_Messenger', 0);
+	$this->RegisterPropertyInteger('ID_Messenge', 0);
     }
 		
     public function ApplyChanges()
