@@ -131,6 +131,9 @@ class HikvisionCam extends IPSModule
 					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 					IPSLogger_Not($titel, $text); 
 				}
+				else
+				{
+				}
 		}
 
 	}
