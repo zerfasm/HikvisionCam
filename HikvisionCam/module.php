@@ -123,9 +123,6 @@ class HikvisionCam extends IPSModule
 		    fclose($fp);
 		}
 		
-		//Sleep for moving to position
-		IPS_SLEEP(100);
-
 		$filecams = ARRAY();
 		//********** Eine Reihe von Bildern machen im Abstand von $pause Msec  *********
 		for ( $i=0;$i<$anz_bilder;$i++)
