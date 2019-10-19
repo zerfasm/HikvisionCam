@@ -24,10 +24,8 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyInteger('Break', 100);
 		$this->RegisterPropertyString('Picture_Path', "D:");
 
-		// MWindow Parameter
-		$this->RegisterPropertyInteger('Window_1', 0);
-		$this->RegisterPropertyInteger('Window_2', 0);
-		$this->RegisterPropertyInteger('Window_3', 0);
+		// Alarm Parameter
+		$this->RegisterPropertyInteger('Alarm', 0);
 		
 		// Messenger Parameter
 		$this->RegisterPropertyInteger('Messenger_ID', 0);
