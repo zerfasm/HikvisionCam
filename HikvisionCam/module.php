@@ -42,8 +42,11 @@ class HikvisionCam extends IPSModule
 	public function ApplyChanges()
 	{
 		//Never delete this line!
-		parent::ApplyChanges();  
-		
+		parent::ApplyChanges();  	
+	}
+	
+	public function Update()
+    	{
 		//User
 		$user = $this->ReadPropertyString('UserName');
 
@@ -83,10 +86,7 @@ class HikvisionCam extends IPSModule
 		//Messagetexte und Titel
 		$text 	= $this->ReadPropertyString('Messenger_Text').date("d.m.y - H:i:s");
 		$titel	= $this->ReadPropertyString('Messenger_Title');
-	}
-	
-	public function Update()
-    	{
+		
 		//Go to preset
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
 		</PTZPreset>'."\r\n";
