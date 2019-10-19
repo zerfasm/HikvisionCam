@@ -28,7 +28,7 @@
     
     {"type": "ExpansionPanel", "caption": "Logging",
       "items": [
-        {"type": "CheckBox", "name": "CreateLog", "caption": "Logging?" },
+        {"type": "CheckBox", "name": "Log", "caption": "Logging?" }
       ]
     },
 	  
