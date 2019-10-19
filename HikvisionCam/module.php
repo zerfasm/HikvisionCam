@@ -30,7 +30,7 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyInteger('Alarm', 0);
 		
 		//Logging
-		$this->RegisterPropertyBoolean('Log', false);
+		$this->RegisterPropertyBoolean('Logging', false);
 		
 		// Messenger Parameter
 		$this->RegisterPropertyInteger('Messenger_ID', 0);
@@ -120,7 +120,7 @@ class HikvisionCam extends IPSModule
 				}
 				
 				//Logging
-				$log = $this->ReadPropertyBoolean('Log'); 
+				$log = $this->ReadPropertyBoolean('Logging'); 
 				If ($log = true)
 				{
 					//Messagetexte und Titel
@@ -130,9 +130,6 @@ class HikvisionCam extends IPSModule
 					//Meldung im IPS Logger
 					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 					IPSLogger_Not($titel, $text); 
-				}
-				else
-				{
 				}
 		}
 
