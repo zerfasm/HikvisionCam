@@ -95,42 +95,51 @@ class HikvisionCam extends IPSModule
 			curl_setopt($ch, CURLOPT_FORBID_REUSE, true);
 			curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
 			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.0; da; rv:1.9.0.11) Gecko/2009060215 Firefox/3.0.11');
-				$fp = fopen($file, 'wb');
-				curl_setopt($ch, CURLOPT_FILE, $fp);
-				curl_setopt($ch, CURLOPT_HEADER, 0);
-				curl_exec($ch);
-				curl_close($ch);
-				fclose($fp);
-				$filecams[$i]=$file;
-				
-				//Break
-				$pause = $this->ReadPropertyInteger('Break');
-				IPS_SLEEP($pause);
-			
-				//Alarm
-				$alarm = $this->ReadPropertyInteger('Alarm');
-				if ($alarm != 0) 
-				{
-				    $alarm = GetValue($alarm);
-				} 
-				else 
-				{
-				    $this->SendDebug('UPDATE', 'Alarm Contact not set!');
-				    $state = false;
-				}
-				
-				//Logging
-				$log = $this->ReadPropertyBoolean('Logging'); 
-				If ($log = true)
-				{
-					//Messagetexte und Titel
-					$text 	= $this->ReadPropertyString('Messenger_Text').date("d.m.y - H:i:s");
-					$titel	= $this->ReadPropertyString('Messenger_Title');
+			$fp = fopen($file, 'wb');
+			curl_setopt($ch, CURLOPT_FILE, $fp);
+			curl_setopt($ch, CURLOPT_HEADER, 0);
+			curl_exec($ch);
+			curl_close($ch);
+			fclose($fp);
+			$filecams[$i]=$file;
 
-					//Meldung im IPS Logger
-					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
-					IPSLogger_Not($titel, $text); 
-				}
+			//Break
+			$pause = $this->ReadPropertyInteger('Break');
+			IPS_SLEEP($pause);
+
+			//Alarm
+			$alarm = $this->ReadPropertyInteger('Alarm');
+			if ($alarm != 0) 
+			{
+			    $alarm = GetValue($alarm);
+			} 
+			else 
+			{
+			    $this->SendDebug('UPDATE', 'Alarm Contact not set!');
+			    $state = false;
+			}
+
+			//Logging
+			$logg = $this->ReadPropertyBoolean('Logging'); 
+			if ($logg != 0) 
+			{
+			    $logg= GetValue($logg);
+			} 
+			else 
+			{
+			    $this->SendDebug('UPDATE', 'Logging not set!');
+			    $state = false;
+			}
+			If ($logg = true)
+			{
+				//Messagetexte und Titel
+				$text 	= $this->ReadPropertyString('Messenger_Text').date("d.m.y - H:i:s");
+				$titel	= $this->ReadPropertyString('Messenger_Title');
+
+				//Meldung im IPS Logger
+				IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
+				IPSLogger_Not($titel, $text); 
+			}
 		}
 
 	}
