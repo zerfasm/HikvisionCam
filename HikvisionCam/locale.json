@@ -9,7 +9,8 @@
             "Password:": "Passwort:",
             "Alarm Contact Parameter": "Alarmkontakt Parameter",
             "Alarm Contact:": "Alarmkontakt:",
-            "Send Message - Yes / No" : "Nachricht mit Telegram senden - Ja / Nein",
+            "Send Message?" : "Nachricht senden?",
+            
             "Number of Pictures:": "Anzahl Bilder:",
             "Break:": "Pause zwischen Bildern:",
             "Preset:": "Voreingestellte Position:",
