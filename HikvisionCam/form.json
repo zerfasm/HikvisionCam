@@ -13,7 +13,8 @@
       "items": [
 	{"type": "ValidationTextBox", "name": "ISAPI_Start", "caption": "ISAPI Start:" },
 	{"type": "ValidationTextBox", "name": "ISAPI", "caption": "ISAPI Target:" },
-	{"type": "ValidationTextBox", "name": "URL", "caption": "URL:" },
+	{"type": "ValidationTextBox", "name": "URLSnapshot", "caption": "URL Snapshot:" },
+	{"type": "ValidationTextBox", "name": "URLLiveview", "caption": "URL Liveview:" },
 	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" },
         {"type": "ValidationTextBox", "name": "No_Picture", "caption": "Number of Pictures:" },
 	{"type": "ValidationTextBox", "name": "Picture_Path", "caption": "Path Pictures:" }
