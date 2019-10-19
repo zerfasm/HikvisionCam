@@ -89,6 +89,9 @@ class HikvisionCam extends IPSModule
 			//IP-Adress
 			$IP = $this->ReadPropertyString('IPAdress');
 			
+			//Sleep for moving to position
+			IPS_SLEEP(500);
+			
 			//Go to preset
 			$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
 			</PTZPreset>'."\r\n";
@@ -126,9 +129,6 @@ class HikvisionCam extends IPSModule
 				    //Soket schliessen
 				    fclose($fp);
 				}
-
-				//Daten ausgeben
-				echo $headers.'<hr/>'.$body;
 			
 			//Bilder machen und im Bildverzeichnis ablegen
 			$ch = curl_init();
