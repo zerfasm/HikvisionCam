@@ -11,6 +11,7 @@ class HikvisionCam extends IPSModule
 		parent::Create();
 		//These lines are parsed on Symcon Startup or Instance creation
 		//You cannot use variables here. Just static values.  
+		
 		// Camera Parameter
 		$this->RegisterPropertyString('IPAdress', "192.168.2.62");
 		$this->RegisterPropertyString('Name', "Hikvision Cam");
@@ -18,6 +19,7 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyString('UserPassword', "");
 		$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/2/goto");
 		$this->RegisterPropertyString('Preset', "");
+		
 		// Snapshot Parameter
 		$this->RegisterPropertyInteger('No_Picture', 10);
 		$this->RegisterPropertyString('URL', "http://192.168.2.62/Streaming/channels/1/picture");
@@ -51,29 +53,11 @@ class HikvisionCam extends IPSModule
 		
 		//Anzahl Bilder
 		$anz_bilder = $this->ReadPropertyInteger('No_Picture');
-		if ($anz_bilder != 0) 
-		{
-		    $anz_bilder = GetValue($anz_bilder);
-		} 
-		else 
-		{
-		    $this->SendDebug('UPDATE', 'Number of pictures not set!');
-		    $state = false;
-		}
 		
 		for ( $i=0;$i<$anz_bilder;$i++)
 		{
 			//Bildpfad
 			$bildpfad = $this->ReadPropertyString('Picture_Path');
-			if ($bildpfad != 0) 
-			{
-			    $bildpfad = GetValue($bildpfad);
-			} 
-			else 
-			{
-			    $this->SendDebug('UPDATE', 'Path of pictures not set!');
-			    $state = false;
-			}
 
 			//Datum und Uhrzeit festlegen	
 			$time = date("d.").date("m.").date("Y")."_".date("H-i-s");
@@ -92,39 +76,12 @@ class HikvisionCam extends IPSModule
 
 			//User
 			$user = $this->ReadPropertyString('UserName');
-			if ($user != 0) 
-			{
-			    $user = GetValue($user);
-			} 
-			else 
-			{
-			    $this->SendDebug('UPDATE', 'User not set!');
-			    $state = false;
-			}
 			
 			//Password
 			$pass = $this->ReadPropertyString('UserPassword');
-			if ($pass != 0) 
-			{
-			    $pass = GetValue($pass);
-			} 
-			else 
-			{
-			    $this->SendDebug('UPDATE', 'Password not set!');
-			    $state = false;
-			}			
 			
 			//URL
 			$url = $this->ReadPropertyString('URL');
-			if ($url != 0) 
-			{
-			    $url = GetValue($url);
-			} 
-			else 
-			{
-			    $this->SendDebug('UPDATE', 'Password not set!');
-			    $state = false;
-			}
 			
 			//Bilder machen und im Bildverzeichnis ablegen
 			$ch = curl_init();
@@ -145,15 +102,6 @@ class HikvisionCam extends IPSModule
 				
 				//Break
 				$pause = $this->ReadPropertyInteger('Break');
-				if ($pause != 0) 
-				{
-				    $pause = GetValue($pause);
-				} 
-				else 
-				{
-				    $this->SendDebug('UPDATE', 'Break between pictures not set!');
-				    $state = false;
-				}
 				IPS_SLEEP($pause);
 			
 				//Alarm
@@ -172,25 +120,8 @@ class HikvisionCam extends IPSModule
 				{
 					//Messagetexte und Titel
 					$text 	= $this->ReadPropertyInteger('Messenger_Text').date("d.m.y - H:i:s");
-					if ($text != 0) 
-					{
-					    $text = GetValue($text);
-					} 
-					else 
-					{
-					    $this->SendDebug('UPDATE', 'Messenger text not set!');
-					    $state = false;
-					}
 					$titel	= $this->ReadPropertyInteger('Messenger_Title');
 					if ($titel != 0) 
-					{
-					    $titel = GetValue($titel);
-					} 
-					else 
-					{
-					    $this->SendDebug('UPDATE', 'Messenger title not set!');
-					    $state = false;
-					}
 					
 					//Meldung im IPS Logger
 					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
