@@ -13,7 +13,7 @@ class HikvisionCam extends IPSModule
 		//You cannot use variables here. Just static values.  
 		
 		// Camera Parameter
-		$this->RegisterPropertyString('IPAdress', "192.168.2.62");
+		$this->RegisterPropertyString('IPAdress', "");
 		$this->RegisterPropertyString('Name', "Hikvision Cam");
 		$this->RegisterPropertyString('UserName', "admin");
 		$this->RegisterPropertyString('UserPassword', "");
@@ -22,7 +22,8 @@ class HikvisionCam extends IPSModule
 		
 		// Snapshot Parameter
 		$this->RegisterPropertyInteger('No_Picture', 6);
-		$this->RegisterPropertyString('URL', "http://192.168.2.62/Streaming/channels/1/picture");
+		$this->RegisterPropertyString('URLSnapshot', "http://ip/Streaming/channels/1/picture");
+		$this->RegisterPropertyString('URLLiveview', "http://user:password@ip/streaming/channels/102/httppreview");
 		$this->RegisterPropertyInteger('Break', 100);
 		$this->RegisterPropertyString('Picture_Path', "");
 
@@ -53,8 +54,11 @@ class HikvisionCam extends IPSModule
 		//Password
 		$pass = $this->ReadPropertyString('UserPassword');
 
-		//URL
-		$url = $this->ReadPropertyString('URL');
+		//URL Snapshot
+		$url = $this->ReadPropertyString('URLSnapshot');
+	
+		//URL SLiveview
+		$urllive = $this->ReadPropertyString('URLLiveview');
 
 		//ISAPI Target
 		$ISAPI = $this->ReadPropertyString('ISAPI');
