@@ -123,7 +123,7 @@ class HikvisionCam extends IPSModule
 					//Messagetexte und Titel
 					$text 	= $this->ReadPropertyInteger('Messenger_Text').date("d.m.y - H:i:s");
 					$titel	= $this->ReadPropertyInteger('Messenger_Title');
-						
+
 					//Meldung im IPS Logger
 					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 					IPSLogger_Not($titel, $text); 
