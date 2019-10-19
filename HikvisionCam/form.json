@@ -20,11 +20,9 @@
       ]
     },
     
-    {"type": "ExpansionPanel", "caption": "Window Contact",
+    {"type": "ExpansionPanel", "caption": "Alarm Contact",
       "items": [
-        {"type": "SelectVariable", "name": "Window_1", "caption": "Window 1:" },
-        {"type": "SelectVariable", "name": "Window_2", "caption": "Window 2:" },
-        {"type": "SelectVariable", "name": "Window_3", "caption": "Window 3:" }
+        {"type": "SelectVariable", "name": "Alarm", "caption": "Alarm Contact:" }
       ]
     },
 	  
