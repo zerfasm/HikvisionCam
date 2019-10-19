@@ -47,6 +47,44 @@ class HikvisionCam extends IPSModule
 	
 	public function Update()
     	{
+		//User
+		$user = $this->ReadPropertyString('UserName');
+
+		//Password
+		$pass = $this->ReadPropertyString('UserPassword');
+
+		//URL
+		$url = $this->ReadPropertyString('URL');
+
+		//ISAPI
+		$ISAPI = $this->ReadPropertyString('ISAPI');
+
+		//IP-Adress
+		$IP = $this->ReadPropertyString('IPAdress');
+		
+		//Anzahl Bilder
+		$anz_bilder = $this->ReadPropertyInteger('No_Picture');
+		
+		//Bildverzeichnis
+		$name_cam = $this->ReadPropertyString('Name');
+		
+		//Bildpfad
+		$bildpfad = $this->ReadPropertyString('Picture_Path');
+		
+		//Break
+		$pause = $this->ReadPropertyInteger('Break');
+		
+		//Alarm
+		$alarm = $this->ReadPropertyInteger('Alarm');
+		
+		//Logging
+		$logg = $this->ReadPropertyBoolean('Logging'); 
+		
+		//Messagetexte und Titel
+		$text 	= $this->ReadPropertyString('Messenger_Text').date("d.m.y - H:i:s");
+		$titel	= $this->ReadPropertyString('Messenger_Title');
+		
+		
 		//Go to preset
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
 		</PTZPreset>'."\r\n";
@@ -90,15 +128,8 @@ class HikvisionCam extends IPSModule
 
 		$filecams = ARRAY();
 		//********** Eine Reihe von Bildern machen im Abstand von $pause Msec  *********
-		
-		//Anzahl Bilder
-		$anz_bilder = $this->ReadPropertyInteger('No_Picture');
-		
 		for ( $i=0;$i<$anz_bilder;$i++)
 		{
-			//Bildpfad
-			$bildpfad = $this->ReadPropertyString('Picture_Path');
-
 			//Datum und Uhrzeit festlegen	
 			$time = date("d.").date("m.").date("Y")."_".date("H-i-s");
 			$datum = date("Y.").date("m.").date("d")."\\";
@@ -110,25 +141,8 @@ class HikvisionCam extends IPSModule
 				mkdir($directoryPath);
 			}
 
-			//Bildverzeichnis
-			$name_cam = $this->ReadPropertyString('Name');
 			$file = $directoryPath.$name_cam."_".$time.".jpg"; 
-
-			//User
-			$user = $this->ReadPropertyString('UserName');
-			
-			//Password
-			$pass = $this->ReadPropertyString('UserPassword');
-			
-			//URL
-			$url = $this->ReadPropertyString('URL');
-			
-			//ISAPI
-			$ISAPI = $this->ReadPropertyString('ISAPI');
-			
-			//IP-Adress
-			$IP = $this->ReadPropertyString('IPAdress');
-						
+					
 			//Bilder machen und im Bildverzeichnis ablegen
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
@@ -146,13 +160,8 @@ class HikvisionCam extends IPSModule
 			curl_close($ch);
 			fclose($fp);
 			$filecams[$i]=$file;
-
-			//Break
-			$pause = $this->ReadPropertyInteger('Break');
 			IPS_SLEEP($pause);
 
-			//Alarm
-			$alarm = $this->ReadPropertyInteger('Alarm');
 			if ($alarm != 0) 
 			{
 			    $alarm = GetValue($alarm);
@@ -162,13 +171,6 @@ class HikvisionCam extends IPSModule
 			    $this->SendDebug('UPDATE', 'Alarm Contact not set!');
 			    $state = false;
 			}
-
-			//Logging
-			$logg = $this->ReadPropertyBoolean('Logging'); 
-
-			//Messagetexte und Titel
-			$text 	= $this->ReadPropertyString('Messenger_Text').date("d.m.y - H:i:s");
-			$titel	= $this->ReadPropertyString('Messenger_Title');
 			
 			If ($logg = true)
 			{
