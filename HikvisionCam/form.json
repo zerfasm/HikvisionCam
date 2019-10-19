@@ -23,7 +23,7 @@
     {"type": "ExpansionPanel", "caption": "Telegram Messenger",
       "items": [
         {"type": "SelectInstance", "name": "ID_Messenger", "caption": "Instance Messenger:" },
-        {"type": "CheckBox", "name": "Switch_Messenger", "caption": "Switch On / Off" }
+        {"type": "CheckBox", "name": "Switch_Messenger", "caption": "Send Message Yes / No" }
       ]
     }
   ],
