@@ -24,7 +24,7 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyInteger('No_Picture', 6;
 		$this->RegisterPropertyString('URL', "http://192.168.2.62/Streaming/channels/1/picture");
 		$this->RegisterPropertyInteger('Break', 100);
-		$this->RegisterPropertyString('Picture_Path', "D:");
+		$this->RegisterPropertyString('Picture_Path', "");
 
 		// Alarm Parameter
 		$this->RegisterPropertyInteger('Alarm', 0);
