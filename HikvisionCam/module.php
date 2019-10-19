@@ -45,5 +45,53 @@ class HikvisionCam extends IPSModule
 		$result = 'Ergebnis konnte nicht ermittelt werden!';
 		// Daten lesen
 		$state = true;
+		
+		$filecams = ARRAY();
+		//********** Eine Reihe von Bildern machen im Abstand von $pause Msec  *********
+		
+		$anz_bilder = $this->ReadPropertyInteger('No_Picture');
+		
+		for ( $i=0;$i<$anz_bilder;$i++)
+		{
+			//Datum und Uhrzeit festlegen
+			$time = date("d.").date("m.").date("Y")."_".date("H-i-s");
+			$datum = date("Y.").date("m.").date("d")."\\";
+
+			$bildpfad = $this->ReadPropertyString('Picture_Path');
+			$directoryPath = $bildpfad.$datum; 
+			if (!file_exists($directoryPath)) 
+			{
+				mkdir($directoryPath);
+			}
+
+			//Bildverzeichnis
+			$name_cam = $this->ReadPropertyString('Name');
+			$file = $directoryPath.$name_cam."_".$time.".jpg"; 
+
+			//Bilder machen und im Bildverzeichnis ablegen
+			$user = $this->ReadPropertyString('UserName');
+			$pass = $this->ReadPropertyString('UserPassword');
+			$url = $this->ReadPropertyString('URL');
+			
+		    	$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+			curl_setopt($ch, CURLOPT_USERPWD, "$user:$pass");
+			curl_setopt($ch, CURLOPT_FORBID_REUSE, true);
+			curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
+			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows; U; Windows NT 6.0; da; rv:1.9.0.11) Gecko/2009060215 Firefox/3.0.11');
+				$fp = fopen($file, 'wb');
+				curl_setopt($ch, CURLOPT_FILE, $fp);
+				curl_setopt($ch, CURLOPT_HEADER, 0);
+				curl_exec($ch);
+				curl_close($ch);
+				fclose($fp);
+				$filecams[$i]=$file;
+
+				$pause = $this->ReadPropertyInteger('Break');
+				IPS_SLEEP($pause);
+		}
+
 	}
 }
