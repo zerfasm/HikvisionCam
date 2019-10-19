@@ -11,7 +11,7 @@
       ]
     },
   
-    {"type": "ExpansionPanel", "caption": "Snapshot",
+    {"type": "ExpansionPanel", "caption": "Snapshot Parameter",
       "items": [
         {"type": "ValidationTextBox", "name": "No_Picture", "caption": "Number of Pictures:" },
         {"type": "ValidationTextBox", "name": "URL", "caption": "URL:" },
@@ -20,13 +20,13 @@
       ]
     },
     
-    {"type": "ExpansionPanel", "caption": "Alarm Contact",
+    {"type": "ExpansionPanel", "caption": "Alarm Contact Parameter",
       "items": [
         {"type": "SelectVariable", "name": "Alarm", "caption": "Alarm Contact:" }
       ]
     },
 	  
-    {"type": "ExpansionPanel", "caption": "Telegram Messenger",
+    {"type": "ExpansionPanel", "caption": "Telegram Messenger Parameter",
       "items": [
         {"type": "SelectInstance", "name": "Messenger_ID", "caption": "Instance Messenger:" },
         {"type": "CheckBox", "name": "Messenger_Switch", "caption": "Send Message - Yes / No" },
