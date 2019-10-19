@@ -21,7 +21,7 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyString('Preset', "");
 		
 		// Snapshot Parameter
-		$this->RegisterPropertyInteger('No_Picture', 10);
+		$this->RegisterPropertyInteger('No_Picture', 6;
 		$this->RegisterPropertyString('URL', "http://192.168.2.62/Streaming/channels/1/picture");
 		$this->RegisterPropertyInteger('Break', 100);
 		$this->RegisterPropertyString('Picture_Path', "D:");
@@ -115,14 +115,15 @@ class HikvisionCam extends IPSModule
 				    $this->SendDebug('UPDATE', 'Alarm Contact not set!');
 				    $state = false;
 				}
-
-				If ($alarm == true)
+				
+				//Message senden
+				$send = $this->ReadPropertyBoolean('Messenger_Switch'); 
+				If ($send = true)
 				{
 					//Messagetexte und Titel
 					$text 	= $this->ReadPropertyInteger('Messenger_Text').date("d.m.y - H:i:s");
 					$titel	= $this->ReadPropertyInteger('Messenger_Title');
-					if ($titel != 0) 
-					
+						
 					//Meldung im IPS Logger
 					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 					IPSLogger_Not($titel, $text); 
