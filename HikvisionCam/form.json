@@ -37,6 +37,6 @@
   ],
   "actions": [
     {"type": "Label", "caption": "Snapshot erstellen!" },
-    {"type": "Button", "caption": "SNAPSHOT", "onClick": "AHC_Update($id);" }
+    {"type": "Button", "caption": "SNAPSHOT", "onClick": "HKVC_Update($id);" }
   ]
 }
