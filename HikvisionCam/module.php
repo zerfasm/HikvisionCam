@@ -24,7 +24,7 @@
 	    
 	// Messenger Parameter
 	$this->RegisterPropertyInteger('ID_Messenger', 0);
-	$this->RegisterPropertyInteger('ID_Messenger', 0);   
+	$this->RegisterPropertyInteger('Switch_Messenger', 0);   
     }
 		
     public function ApplyChanges()
