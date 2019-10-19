@@ -121,16 +121,8 @@ class HikvisionCam extends IPSModule
 
 			//Logging
 			$logg = $this->ReadPropertyBoolean('Logging'); 
-			if ($logg != 0) 
-			{
-			    $logg= GetValue($logg);
-			} 
-			else 
-			{
-			    $this->SendDebug('UPDATE', 'Logging not set!');
-			    $state = false;
-			}
-			If ($logg = true)
+
+			If ($logg = false)
 			{
 				//Messagetexte und Titel
 				$text 	= $this->ReadPropertyString('Messenger_Text').date("d.m.y - H:i:s");
