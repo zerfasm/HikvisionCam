@@ -30,8 +30,10 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyInteger('Window_3', 0);
 		
 		// Messenger Parameter
-		$this->RegisterPropertyInteger('ID_Messenger', 0);
-		$this->RegisterPropertyBoolean('Switch_Messenger', false);   
+		$this->RegisterPropertyInteger('Messenger_ID', 0);
+		$this->RegisterPropertyBoolean('Messenger_Switch', false); 
+		$this->RegisterPropertyString('Messenger_Title', "");
+		$this->RegisterPropertyString('Messenger_Text', "");
 	}
 
 	public function ApplyChanges()
