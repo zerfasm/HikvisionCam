@@ -17,8 +17,8 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyString('Name', "Hikvision Cam");
 		$this->RegisterPropertyString('UserName', "admin");
 		$this->RegisterPropertyString('UserPassword', "");
-		$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/2/goto");
-		$this->RegisterPropertyString('Preset', "");
+		$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
+		$this->RegisterPropertyString('ISAPI_Start', "");
 		
 		// Snapshot Parameter
 		$this->RegisterPropertyInteger('No_Picture', 6);
@@ -56,8 +56,11 @@ class HikvisionCam extends IPSModule
 		//URL
 		$url = $this->ReadPropertyString('URL');
 
-		//ISAPI
+		//ISAPI Target
 		$ISAPI = $this->ReadPropertyString('ISAPI');
+		
+		//ISAPI Start
+		$ISAPI = $this->ReadPropertyString('ISAPI_Start');
 
 		//IP-Adress
 		$IP = $this->ReadPropertyString('IPAdress');
@@ -175,6 +178,44 @@ class HikvisionCam extends IPSModule
 				IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 				IPSLogger_Not($titel, $text); 
 			}
+		}
+		
+		//Go to preset
+		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
+		</PTZPreset>'."\r\n";
+
+		//Socket öffnen
+		$fp = @fsockopen("tcp://".$IP, 80, $errno, $errstr, 10);
+		if (!$fp)
+		{
+		    die($errstr.':'.$errno);
+		}
+		else
+		{
+		    $header  = "PUT $ISAPI_Start HTTP/1.1\r\n";
+		    $header .= "Authorization: Basic ".base64_encode("$user:$pass")."\r\n";
+		    $header .= "User-Agent: php-script\r\n";
+		    $header .= "Host: $IP\r\n";
+		    $header .= "Accept: */*\r\n";
+		    $header .= "Content-Length: ".strlen($xml_data)."\r\n\r\n";
+
+		    //senden von Daten
+		    fwrite($fp, $header.$xml_data);
+
+		    $headers='';
+
+		    //Header lesen
+		    while ($str = trim(fgets($fp, 4096)))
+		    $headers .= "$str\n";
+
+		    $body='';
+
+		    //Antwort lesen
+		    while (!feof($fp))
+		    $body.= fgets($fp, 4096);
+
+		    //Soket schliessen
+		    fclose($fp);
 		}
 
 	}
