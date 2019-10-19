@@ -158,7 +158,6 @@ class HikvisionCam extends IPSModule
 			
 				//Alarm
 				$alarm = $this->ReadPropertyInteger('Alarm');
-			
 				if ($alarm != 0) 
 				{
 				    $alarm = GetValue($alarm);
@@ -193,22 +192,11 @@ class HikvisionCam extends IPSModule
 					    $state = false;
 					}
 					
-					//Message verschicken
-					switch ($_IPS['SENDER'])
-					{
-						//0 = Aus; 1 = Notification Text; 2 = Notification Audio, 3 = Pushover; 4 = Telegramm; 5 = Noti + Push
-						case $message_kamera == 0: //Aus
-
-						case $message_kamera == 4: //Telegramm
-							Telegram_SendImage($tele_ID, $text, $file, $tele_user); 
-						break;
-					}
-
 					//Meldung im IPS Logger
 					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 					IPSLogger_Not($titel, $text); 
 				}
-
+			
 		}
 
 	}
