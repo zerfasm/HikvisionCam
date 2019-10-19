@@ -25,11 +25,17 @@
         {"type": "SelectVariable", "name": "Alarm", "caption": "Alarm Contact:" }
       ]
     },
+    
+    {"type": "ExpansionPanel", "caption": "Logging",
+      "items": [
+        {"type": "CheckBox", "name": "CreateLog", "caption": "Logging?" },
+      ]
+    },
 	  
     {"type": "ExpansionPanel", "caption": "Telegram Messenger Parameter",
       "items": [
         {"type": "SelectInstance", "name": "Messenger_ID", "caption": "Instance Messenger:" },
-        {"type": "CheckBox", "name": "Messenger_Switch", "caption": "Send Message - Yes / No" },
+        {"type": "CheckBox", "name": "Messenger_Switch", "caption": "Send Message?" },
 	{"type": "ValidationTextBox", "name": "Messenger_Title", "caption": "Messenger Title:" },
 	{"type": "ValidationTextBox", "name": "Messenger_Text", "caption": "Messenger Text:" }      
       ]
