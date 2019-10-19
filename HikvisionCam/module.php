@@ -18,7 +18,7 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyString('UserName', "admin");
 		$this->RegisterPropertyString('UserPassword', "");
 		$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
-		$this->RegisterPropertyString('ISAPI_Start', "");
+		$this->RegisterPropertyString('ISAPI_Start', "/ISAPI/PTZCtrl/channels/1/presets/1/got");
 		
 		// Snapshot Parameter
 		$this->RegisterPropertyInteger('No_Picture', 6);
@@ -60,7 +60,7 @@ class HikvisionCam extends IPSModule
 		$ISAPI = $this->ReadPropertyString('ISAPI');
 		
 		//ISAPI Start
-		$ISAPI = $this->ReadPropertyString('ISAPI_Start');
+		$ISAPI_Start = $this->ReadPropertyString('ISAPI_Start');
 
 		//IP-Adress
 		$IP = $this->ReadPropertyString('IPAdress');
