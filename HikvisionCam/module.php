@@ -49,15 +49,37 @@ class HikvisionCam extends IPSModule
 		$filecams = ARRAY();
 		//********** Eine Reihe von Bildern machen im Abstand von $pause Msec  *********
 		
+		//Anzahl Bilder
 		$anz_bilder = $this->ReadPropertyInteger('No_Picture');
+		if ($anz_bilder != 0) 
+		{
+		    $anz_bilder = GetValue($anz_bilder);
+		} 
+		else 
+		{
+		    $this->SendDebug('UPDATE', 'Number of pictures not set!');
+		    $state = false;
+		}
 		
 		for ( $i=0;$i<$anz_bilder;$i++)
 		{
-			//Datum und Uhrzeit festlegen
+			//Bildpfad
 			$bildpfad = $this->ReadPropertyString('Picture_Path');
+			if ($bildpfad != 0) 
+			{
+			    $bildpfad = GetValue($bildpfad);
+			} 
+			else 
+			{
+			    $this->SendDebug('UPDATE', 'Path of pictures not set!');
+			    $state = false;
+			}
+
+			//Datum und Uhrzeit festlegen	
 			$time = date("d.").date("m.").date("Y")."_".date("H-i-s");
 			$datum = date("Y.").date("m.").date("d")."\\";
 
+			//Bildpfad erstellen
 			$directoryPath = $bildpfad.$datum; 
 			if (!file_exists($directoryPath)) 
 			{
@@ -68,12 +90,44 @@ class HikvisionCam extends IPSModule
 			$name_cam = $this->ReadPropertyString('Name');
 			$file = $directoryPath.$name_cam."_".$time.".jpg"; 
 
-			//Bilder machen und im Bildverzeichnis ablegen
+			//User
 			$user = $this->ReadPropertyString('UserName');
-			$pass = $this->ReadPropertyString('UserPassword');
-			$url = $this->ReadPropertyString('URL');
+			if ($user != 0) 
+			{
+			    $user = GetValue($user);
+			} 
+			else 
+			{
+			    $this->SendDebug('UPDATE', 'User not set!');
+			    $state = false;
+			}
 			
-		    	$ch = curl_init();
+			//Password
+			$pass = $this->ReadPropertyString('UserPassword');
+			if ($pass != 0) 
+			{
+			    $pass = GetValue($pass);
+			} 
+			else 
+			{
+			    $this->SendDebug('UPDATE', 'Password not set!');
+			    $state = false;
+			}			
+			
+			//URL
+			$url = $this->ReadPropertyString('URL');
+			if ($url != 0) 
+			{
+			    $url = GetValue($url);
+			} 
+			else 
+			{
+			    $this->SendDebug('UPDATE', 'Password not set!');
+			    $state = false;
+			}
+			
+			//Bilder machen und im Bildverzeichnis ablegen
+			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
@@ -88,11 +142,23 @@ class HikvisionCam extends IPSModule
 				curl_close($ch);
 				fclose($fp);
 				$filecams[$i]=$file;
-
-				$pause = $this->ReadPropertyInteger('Break');
-				IPS_SLEEP($pause);
 				
+				//Break
+				$pause = $this->ReadPropertyInteger('Break');
+				if ($pause != 0) 
+				{
+				    $pause = GetValue($pause);
+				} 
+				else 
+				{
+				    $this->SendDebug('UPDATE', 'Break between pictures not set!');
+				    $state = false;
+				}
+				IPS_SLEEP($pause);
+			
+				//Alarm
 				$alarm = $this->ReadPropertyInteger('Alarm');
+			
 				if ($alarm != 0) 
 				{
 				    $alarm = GetValue($alarm);
@@ -102,13 +168,31 @@ class HikvisionCam extends IPSModule
 				    $this->SendDebug('UPDATE', 'Alarm Contact not set!');
 				    $state = false;
 				}
-			
+
 				If ($alarm == true)
 				{
 					//Messagetexte und Titel
-					$text 	= "Haustür EG ".date("d.m.y - H:i:s");
-					$titel	= 'Alarm';
-
+					$text 	= $this->ReadPropertyInteger('Messenger_Text').date("d.m.y - H:i:s");
+					if ($text != 0) 
+					{
+					    $text = GetValue($text);
+					} 
+					else 
+					{
+					    $this->SendDebug('UPDATE', 'Messenger text not set!');
+					    $state = false;
+					}
+					$titel	= $this->ReadPropertyInteger('Messenger_Title');
+					if ($titel != 0) 
+					{
+					    $titel = GetValue($titel);
+					} 
+					else 
+					{
+					    $this->SendDebug('UPDATE', 'Messenger title not set!');
+					    $state = false;
+					}
+					
 					//Message verschicken
 					switch ($_IPS['SENDER'])
 					{
@@ -124,7 +208,7 @@ class HikvisionCam extends IPSModule
 					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 					IPSLogger_Not($titel, $text); 
 				}
-			
+
 		}
 
 	}
