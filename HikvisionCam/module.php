@@ -47,10 +47,7 @@ class HikvisionCam extends IPSModule
 	
 	public function Update()
     	{
-		$result = 'Ergebnis konnte nicht ermittelt werden!';
-		// Daten lesen
-		$state = true;
-		
+
 		$filecams = ARRAY();
 		//********** Eine Reihe von Bildern machen im Abstand von $pause Msec  *********
 		
