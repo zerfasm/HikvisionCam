@@ -24,9 +24,7 @@
       "items": [
         {"type": "SelectVariable", "name": "Window_1", "caption": "Window 1:" },
         {"type": "SelectVariable", "name": "Window_2", "caption": "Window 2:" },
-        {"type": "SelectVariable", "name": "Window_3", "caption": "Window 3:" },
-        {"type": "SelectVariable", "name": "Window_4", "caption": "Window 4:" },
-	{"type": "SelectVariable", "name": "Window_5", "caption": "Window 5:" }
+        {"type": "SelectVariable", "name": "Window_3", "caption": "Window 3:" }
       ]
     },
 	  
