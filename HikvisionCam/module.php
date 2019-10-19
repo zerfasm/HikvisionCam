@@ -54,10 +54,10 @@ class HikvisionCam extends IPSModule
 		for ( $i=0;$i<$anz_bilder;$i++)
 		{
 			//Datum und Uhrzeit festlegen
+			$bildpfad = $this->ReadPropertyString('Picture_Path');
 			$time = date("d.").date("m.").date("Y")."_".date("H-i-s");
 			$datum = date("Y.").date("m.").date("d")."\\";
 
-			$bildpfad = $this->ReadPropertyString('Picture_Path');
 			$directoryPath = $bildpfad.$datum; 
 			if (!file_exists($directoryPath)) 
 			{
@@ -91,6 +91,40 @@ class HikvisionCam extends IPSModule
 
 				$pause = $this->ReadPropertyInteger('Break');
 				IPS_SLEEP($pause);
+				
+				$alarm = $this->ReadPropertyInteger('Alarm');
+				if ($alarm != 0) 
+				{
+				    $alarm = GetValue($alarm);
+				} 
+				else 
+				{
+				    $this->SendDebug('UPDATE', 'Alarm Contact not set!');
+				    $state = false;
+				}
+			
+				If ($alarm == true)
+				{
+					//Messagetexte und Titel
+					$text 	= "Haustür EG ".date("d.m.y - H:i:s");
+					$titel	= 'Alarm';
+
+					//Message verschicken
+					switch ($_IPS['SENDER'])
+					{
+						//0 = Aus; 1 = Notification Text; 2 = Notification Audio, 3 = Pushover; 4 = Telegramm; 5 = Noti + Push
+						case $message_kamera == 0: //Aus
+
+						case $message_kamera == 4: //Telegramm
+							Telegram_SendImage($tele_ID, $text, $file, $tele_user); 
+						break;
+					}
+
+					//Meldung im IPS Logger
+					IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
+					IPSLogger_Not($titel, $text); 
+				}
+			
 		}
 
 	}
