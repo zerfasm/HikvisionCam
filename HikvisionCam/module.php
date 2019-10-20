@@ -161,7 +161,7 @@ class HikvisionCam extends IPSModule
 			$filecams[$i]=$file;
 			IPS_SLEEP($pause);
 
-			if ($alarm != 0) 
+			if ($alarm == true) 
 			{
 			    $alarm = GetValue($alarm);
 			} 
