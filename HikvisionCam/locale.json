@@ -9,12 +9,10 @@
             "ISAPI Start:": "ISAPI Ausgangsposition:",
             "User:": "Benutzer:",
             "Password:": "Passwort:",
-            "Send Message?" : "Nachricht senden?",
             "Number of Pictures:": "Anzahl Bilder:",
             "Break:": "Pause zwischen Bildern:",
             "Preset:": "Voreingestellte Position:",
-            "Messenger Title:": "Messenger Titel:",
-            "Messenger Text:": "Messenger Text:",
+            "Title:": "Messenger Titel:",
             "Path Pictures:": "Bildpfad:"
         }
     }
