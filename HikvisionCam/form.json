@@ -13,10 +13,10 @@
   
     {"type": "ExpansionPanel", "caption": "Snapshot Parameter",
       "items": [
-	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" },
-        {"type": "ValidationTextBox", "name": "No_Picture", "caption": "Number of Pictures:" },
+	{"type": "ValidationTextBox", "name": "URLSnapshot", "caption": "URL Snapshot:" },
 	{"type": "ValidationTextBox", "name": "Picture_Path", "caption": "Path Pictures:" },
-	{"type": "ValidationTextBox", "name": "URLSnapshot", "caption": "URL Snapshot:" }
+	{"type": "ValidationTextBox", "name": "No_Picture", "caption": "Number of Pictures:" },
+	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" }
       ]
     },
     
