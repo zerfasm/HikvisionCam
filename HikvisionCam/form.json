@@ -2,19 +2,19 @@
   "elements": [
     {"type": "ExpansionPanel", "caption": "Camera Parameter",
       "items": [
+	{"type": "ValidationTextBox", "name": "Name", "caption": "Name Cam:" },
         {"type": "ValidationTextBox", "name": "IPAdress", "caption": "IP-Adress:" },
 	{"type": "ValidationTextBox", "name": "UserName", "caption": "User:" },
         {"type": "PasswordTextBox", "name": "UserPassword", "caption": "Password:" },
-        {"type": "ValidationTextBox", "name": "Name", "caption": "Name Cam:" }
+	{"type": "ValidationTextBox", "name": "ISAPI_Start", "caption": "ISAPI Start:" },
+	{"type": "ValidationTextBox", "name": "ISAPI", "caption": "ISAPI Target:" },
+	{"type": "ValidationTextBox", "name": "URLSnapshot", "caption": "URL Snapshot:" },
+	{"type": "ValidationTextBox", "name": "URLLiveview", "caption": "URL Liveview:" }
       ]
     },
   
     {"type": "ExpansionPanel", "caption": "Snapshot Parameter",
       "items": [
-	{"type": "ValidationTextBox", "name": "ISAPI_Start", "caption": "ISAPI Start:" },
-	{"type": "ValidationTextBox", "name": "ISAPI", "caption": "ISAPI Target:" },
-	{"type": "ValidationTextBox", "name": "URLSnapshot", "caption": "URL Snapshot:" },
-	{"type": "ValidationTextBox", "name": "URLLiveview", "caption": "URL Liveview:" },
 	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" },
         {"type": "ValidationTextBox", "name": "No_Picture", "caption": "Number of Pictures:" },
 	{"type": "ValidationTextBox", "name": "Picture_Path", "caption": "Path Pictures:" }
