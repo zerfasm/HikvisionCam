@@ -29,7 +29,6 @@ class HikvisionCam extends IPSModule
 		//Logging
 		$this->RegisterPropertyBoolean('Logging', false);
 		$this->RegisterPropertyString('Title', "");
-		$this->RegisterPropertyString('Text', "");
 	}
 
 	public function ApplyChanges()
@@ -74,7 +73,7 @@ class HikvisionCam extends IPSModule
 		$log = $this->ReadPropertyBoolean('Logging'); 
 		
 		//Messagetexte und Titel
-		$text 	= $this->ReadPropertyString('Text').date("d.m.y - H:i:s");
+		$text 	= $this->ReadPropertyString('Name').date("d.m.y - H:i:s");
 		$titel	= $this->ReadPropertyString('Title');
 		
 		//Go to preset
