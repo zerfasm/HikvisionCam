@@ -9,7 +9,8 @@
 	{"type": "ValidationTextBox", "name": "ISAPI_Start", "caption": "ISAPI Start:" },
 	{"type": "ValidationTextBox", "name": "ISAPI", "caption": "ISAPI Target:" },
 	{"type": "ValidationTextBox", "name": "URLSnapshot", "caption": "URL Snapshot:" },
-	{"type": "ValidationTextBox", "name": "URLLiveview", "caption": "URL Liveview:" }
+	{"type": "ValidationTextBox", "name": "URLLiveview", "caption": "URL Liveview:" },
+	{"type": "CheckBox", "name": "CreateLiveview", "caption": "Create variable Liveview?" }
       ]
     },
   
