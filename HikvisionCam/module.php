@@ -31,6 +31,7 @@ class HikvisionCam extends IPSModule
 		
 		// Messenger Parameter
 		$this->RegisterPropertyInteger('Messenger_ID', 0);
+		$this->RegisterPropertyInteger('Messenger_User', 0);
 		$this->RegisterPropertyBoolean('Messenger_Switch', false); 
 		$this->RegisterPropertyString('Messenger_Title', "");
 		$this->RegisterPropertyString('Messenger_Text', "");
@@ -84,7 +85,7 @@ class HikvisionCam extends IPSModule
 		//Telegram Messenger
 		$tele_id = $this->ReadPropertyInteger('Messenger_ID');
 		$tele_sw = $this->ReadPropertyBoolean('Messenger_Switch'); 
-		//$tele_us = $this->ReadPropertyBoolean('Messenger_User');
+		$tele_us = $this->ReadPropertyBoolean('Messenger_User');
 		
 		//Go to preset
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
@@ -171,7 +172,7 @@ class HikvisionCam extends IPSModule
 			//Telegram Messenger Switch Off / On
 			If ($tele_sw == true)
 			{
-				Telegram_SendImage($tele_id, $text, $file, "");
+				Telegram_SendImage($tele_id, $text, $file, $tele_us);
 			}
 			
 			
