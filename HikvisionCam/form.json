@@ -23,8 +23,7 @@
     {"type": "ExpansionPanel", "caption": "Logging",
       "items": [
         {"type": "CheckBox", "name": "Logging", "caption": "Logging?" },
-	{"type": "ValidationTextBox", "name": "Title", "caption": "Title:" },
-	{"type": "ValidationTextBox", "name": "Text", "caption": "Text:" }   
+	{"type": "ValidationTextBox", "name": "Title", "caption": "Title:" }  
       ]
     }
   ],
