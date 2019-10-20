@@ -21,7 +21,7 @@ Modul zur Anbindung von Hikvision PTZ Kameras. Mit Hilfe des Moduls können Schn
 
 ### 3. Software-Installation
 
-* Über das Module Control folgende URL hinzufügen: 
+* Über das Module Control folgende URL hinzufügen: https://github.com/zerfasm/HikvisionCam
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
