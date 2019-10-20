@@ -12,7 +12,7 @@ Beschreibung des Moduls.
 7. [PHP-Befehlsreferenz](#7-php-befehlsreferenz)
 
 ### 1. Funktionsumfang
-
+Modul zur Anbindung von Hikvision PTZ Kameras. Mit Hilfe des Moduls können Schnappschüsse erstellt werden
 *
 
 ### 2. Vorraussetzungen
@@ -21,8 +21,7 @@ Beschreibung des Moduls.
 
 ### 3. Software-Installation
 
-* Über den Module Store das 'HikvisionCam'-Modul installieren.
-* Alternativ über das Module Control folgende URL hinzufügen
+* Über das Module Control folgende URL hinzufügen: 
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
