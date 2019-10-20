@@ -55,9 +55,6 @@ class HikvisionCam extends IPSModule
 
 		//URL Snapshot
 		$url = $this->ReadPropertyString('URLSnapshot');
-	
-		//URL SLiveview
-		$urllive = $this->ReadPropertyString('URLLiveview');
 
 		//ISAPI Target
 		$ISAPI = $this->ReadPropertyString('ISAPI');
