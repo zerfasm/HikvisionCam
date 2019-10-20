@@ -22,17 +22,9 @@
       
     {"type": "ExpansionPanel", "caption": "Logging",
       "items": [
-        {"type": "CheckBox", "name": "Logging", "caption": "Logging?" }
-      ]
-    },
-	  
-    {"type": "ExpansionPanel", "caption": "Telegram Messenger Parameter",
-      "items": [
-        {"type": "SelectInstance", "name": "Messenger_Instance_ID", "caption": "Instance Messenger:" },
-	{"type": "SelectVariable", "name": "Messenger_User_ID", "caption": "User Messenger:" },     
-        {"type": "CheckBox", "name": "Messenger_Switch", "caption": "Send Message?" },
-	{"type": "ValidationTextBox", "name": "Messenger_Title", "caption": "Messenger Title:" },
-	{"type": "ValidationTextBox", "name": "Messenger_Text", "caption": "Messenger Text:" }      
+        {"type": "CheckBox", "name": "Logging", "caption": "Logging?" },
+	{"type": "ValidationTextBox", "name": "Title", "caption": "Title:" },
+	{"type": "ValidationTextBox", "name": "Text", "caption": "Text:" }   
       ]
     }
   ],
