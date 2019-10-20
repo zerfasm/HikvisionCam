@@ -96,7 +96,18 @@ class HikvisionCam extends IPSModule
 		$text 	= $this->ReadPropertyString('Messenger_Text').date("d.m.y - H:i:s");
 		$titel	= $this->ReadPropertyString('Messenger_Title');
 		
-		//Go to preset
+		// Liveview
+		$lv = $this->ReadPropertyBoolean('CreateLiveview');
+		if ($lv != 0) {
+		    $lv = GetValue($lv);
+		    $this->SetValue('Liveview', $urllive);
+		    }
+		} else {
+		    $this->SendDebug('UPDATE', 'Liveview not set!');
+		    $state = false;
+		}
+				
+		//Go to preset Target
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
 		</PTZPreset>'."\r\n";
 
@@ -188,7 +199,7 @@ class HikvisionCam extends IPSModule
 			}
 		}
 		
-		//Go to preset
+		//Go to preset Start
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
 		</PTZPreset>'."\r\n";
 
