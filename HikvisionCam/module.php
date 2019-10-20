@@ -30,8 +30,8 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyBoolean('Logging', false);
 		
 		// Messenger Parameter
-		$this->RegisterPropertyInteger('Messenger_ID', 0);
-		$this->RegisterPropertyInteger('Messenger_User', 0);
+		$this->RegisterPropertyInteger('Messenger_Instance_ID', 0);
+		$this->RegisterPropertyInteger('Messenger_User_ID', 0);
 		$this->RegisterPropertyBoolean('Messenger_Switch', false); 
 		$this->RegisterPropertyString('Messenger_Title', "");
 		$this->RegisterPropertyString('Messenger_Text', "");
@@ -83,9 +83,9 @@ class HikvisionCam extends IPSModule
 		$titel	= $this->ReadPropertyString('Messenger_Title');
 		
 		//Telegram Messenger
-		$tele_id = $this->ReadPropertyInteger('Messenger_ID');
+		$tele_id = $this->ReadPropertyInteger('Messenger_Instance_ID');
 		$tele_sw = $this->ReadPropertyBoolean('Messenger_Switch'); 
-		$tele_us = $this->ReadPropertyInteger('Messenger_User');
+		$tele_us = $this->ReadPropertyInteger('Messenger_User_ID');
 		
 		//Go to preset
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
@@ -167,15 +167,10 @@ class HikvisionCam extends IPSModule
 				//Meldung im IPS Logger
 				IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 				IPSLogger_Not($titel, $text); 
-			}
-			
-			//Telegram Messenger Switch Off / On
-			If ($tele_sw == true)
-			{
+				
+				//Telegram Messenger Switch Off / On
 				Telegram_SendImage($tele_id, $text, $file, $tele_us);
 			}
-			
-			
 		}
 		
 		//Go to preset
