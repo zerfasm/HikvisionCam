@@ -27,6 +27,7 @@
       ]
     }
   ],
+	
   "actions": [
     {"type": "Label", "caption": "Snapshot erstellen!" },
     {"type": "Button", "caption": "SNAPSHOT", "onClick": "HKVC_Update($id);" }
