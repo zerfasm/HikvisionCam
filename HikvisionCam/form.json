@@ -19,13 +19,7 @@
 	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" }
       ]
     },
-    
-    {"type": "ExpansionPanel", "caption": "Alarm Contact Parameter",
-      "items": [
-        {"type": "SelectVariable", "name": "Alarm", "caption": "Alarm Contact:" }
-      ]
-    },
-    
+      
     {"type": "ExpansionPanel", "caption": "Logging",
       "items": [
         {"type": "CheckBox", "name": "Logging", "caption": "Logging?" }
