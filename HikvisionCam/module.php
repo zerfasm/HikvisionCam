@@ -98,11 +98,13 @@ class HikvisionCam extends IPSModule
 		
 		// Liveview
 		$lv = $this->ReadPropertyBoolean('CreateLiveview');
-		if ($lv != 0) {
+		if ($lv != 0) 
+		{
 		    $lv = GetValue($lv);
 		    $this->SetValue('Liveview', $urllive);
-		    }
-		} else {
+		} 
+		else 
+		{
 		    $this->SendDebug('UPDATE', 'Liveview not set!');
 		    $state = false;
 		}
