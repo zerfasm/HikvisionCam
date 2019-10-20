@@ -18,12 +18,13 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyString('UserName', "admin");
 		$this->RegisterPropertyString('UserPassword', "");
 		$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
-		$this->RegisterPropertyString('ISAPI_Start', "/ISAPI/PTZCtrl/channels/1/presets/1/got");
+		$this->RegisterPropertyString('ISAPI_Start', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
+		$this->RegisterPropertyString('URLSnapshot', "http://ip/Streaming/channels/1/picture");
+		$this->RegisterPropertyString('URLLiveview', "http://user:password@ip/streaming/channels/102/httppreview");
+		$this->RegisterPropertyBoolean('CreateLiveview', false);
 		
 		// Snapshot Parameter
 		$this->RegisterPropertyInteger('No_Picture', 6);
-		$this->RegisterPropertyString('URLSnapshot', "http://ip/Streaming/channels/1/picture");
-		$this->RegisterPropertyString('URLLiveview', "http://user:password@ip/streaming/channels/102/httppreview");
 		$this->RegisterPropertyInteger('Break', 100);
 		$this->RegisterPropertyString('Picture_Path', "");
 
@@ -43,7 +44,11 @@ class HikvisionCam extends IPSModule
 	public function ApplyChanges()
 	{
 		//Never delete this line!
-		parent::ApplyChanges();  	
+		parent::ApplyChanges();  
+		
+		// Liveview
+		$create = $this->ReadPropertyBoolean('CreateLiveview');
+		$this->MaintainVariable('Liveview', 'Liveview', vtString, '~HTMLBox', 1, $create)
 	}
 	
 	public function Update()
