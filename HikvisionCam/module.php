@@ -85,7 +85,7 @@ class HikvisionCam extends IPSModule
 		//Telegram Messenger
 		$tele_id = $this->ReadPropertyInteger('Messenger_ID');
 		$tele_sw = $this->ReadPropertyBoolean('Messenger_Switch'); 
-		$tele_us = $this->ReadPropertyBoolean('Messenger_User');
+		$tele_us = $this->ReadPropertyInteger('Messenger_User');
 		
 		//Go to preset
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
