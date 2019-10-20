@@ -48,7 +48,7 @@ class HikvisionCam extends IPSModule
 		
 		// Liveview
 		$create = $this->ReadPropertyBoolean('CreateLiveview');
-		$this->MaintainVariable('Liveview', 'Liveview', vtString, '~HTMLBox', 1, $create)
+		$this->MaintainVariable('Liveview', 'Liveview', vtString, '~HTMLBox', 1, $create);
 	}
 	
 	public function Update()
