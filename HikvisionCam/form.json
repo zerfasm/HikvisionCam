@@ -29,6 +29,7 @@
     {"type": "ExpansionPanel", "caption": "Telegram Messenger Parameter",
       "items": [
         {"type": "SelectInstance", "name": "Messenger_ID", "caption": "Instance Messenger:" },
+	{"type": "SelectVariable", "name": "Messenger_User", "caption": "User Messenger:" },     
         {"type": "CheckBox", "name": "Messenger_Switch", "caption": "Send Message?" },
 	{"type": "ValidationTextBox", "name": "Messenger_Title", "caption": "Messenger Title:" },
 	{"type": "ValidationTextBox", "name": "Messenger_Text", "caption": "Messenger Text:" }      
