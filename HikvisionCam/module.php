@@ -169,7 +169,7 @@ class HikvisionCam extends IPSModule
 				IPSLogger_Not($titel, $text); 
 				
 				//Telegram Messenger Switch Off / On
-				Telegram_SendImage($tele_id, $text, $file, $tele_us);
+				Telegram_SendImage(53756, $text, $file, 58854);
 			}
 		}
 		
