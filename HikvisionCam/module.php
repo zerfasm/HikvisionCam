@@ -25,9 +25,6 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyInteger('No_Picture', 6);
 		$this->RegisterPropertyInteger('Break', 100);
 		$this->RegisterPropertyString('Picture_Path', "");
-
-		// Alarm Parameter
-		$this->RegisterPropertyInteger('Alarm', 0);
 		
 		//Logging
 		$this->RegisterPropertyBoolean('Logging', false);
@@ -76,9 +73,6 @@ class HikvisionCam extends IPSModule
 		
 		//Break
 		$pause = $this->ReadPropertyInteger('Break');
-		
-		//Alarm
-		$alarm = $this->ReadPropertyInteger('Alarm');
 		
 		//Logging
 		$logg = $this->ReadPropertyBoolean('Logging'); 
@@ -161,17 +155,7 @@ class HikvisionCam extends IPSModule
 			$filecams[$i]=$file;
 			IPS_SLEEP($pause);
 
-			if ($alarm == true) 
-			{
-			    $alarm = GetValue($alarm);
-			} 
-			else 
-			{
-			    $this->SendDebug('UPDATE', 'Alarm Contact not set!');
-			    $state = false;
-			}
-			
-			If ($logg = true)
+			If ($logg == true)
 			{
 				//Meldung im IPS Logger
 				IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
