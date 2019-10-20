@@ -20,8 +20,6 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
 		$this->RegisterPropertyString('ISAPI_Start', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
 		$this->RegisterPropertyString('URLSnapshot', "http://ip/Streaming/channels/1/picture");
-		$this->RegisterPropertyString('URLLiveview', "http://user:password@ip/streaming/channels/102/httppreview");
-		$this->RegisterPropertyBoolean('CreateLiveview', false);
 		
 		// Snapshot Parameter
 		$this->RegisterPropertyInteger('No_Picture', 6);
@@ -45,10 +43,6 @@ class HikvisionCam extends IPSModule
 	{
 		//Never delete this line!
 		parent::ApplyChanges();  
-		
-		// Liveview
-		$create = $this->ReadPropertyBoolean('CreateLiveview');
-		$this->MaintainVariable('Liveview', 'Live Ansicht', vtString, '~HTMLBox', 1, $create);
 	}
 	
 	public function Update()
@@ -61,9 +55,6 @@ class HikvisionCam extends IPSModule
 
 		//URL Snapshot
 		$url = $this->ReadPropertyString('URLSnapshot');
-	
-		//URL SLiveview
-		$urllive = $this->ReadPropertyString('URLLiveview');
 
 		//ISAPI Target
 		$ISAPI = $this->ReadPropertyString('ISAPI');
@@ -95,18 +86,6 @@ class HikvisionCam extends IPSModule
 		//Messagetexte und Titel
 		$text 	= $this->ReadPropertyString('Messenger_Text').date("d.m.y - H:i:s");
 		$titel	= $this->ReadPropertyString('Messenger_Title');
-		
-		// Liveview
-		$lv = $this->ReadPropertyBoolean('CreateLiveview');
-		if ($lv == true) 
-		{
-		    $this->SetValue('Liveview', $urllive);
-		} 
-		else 
-		{
-		    $this->SendDebug('UPDATE', 'Liveview not set!');
-		    $state = false;
-		}
 				
 		//Go to preset Target
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
