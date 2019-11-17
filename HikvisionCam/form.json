@@ -19,6 +19,14 @@
 	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" }
       ]
     },
+	  
+    {"type": "ExpansionPanel", "caption": "Telegram Messenger",
+      "items": [     
+	{"type": "CheckBox", "name": "CheckTelegram", "caption": "Output by Telegram?"},
+	      
+	{"type": "SelectInstance", "name": "TelegramID", "caption": "ID Telegram:" }
+      ]
+    },
       
     {"type": "ExpansionPanel", "caption": "Logging",
       "items": [
