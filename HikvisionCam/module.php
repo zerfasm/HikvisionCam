@@ -26,6 +26,10 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyInteger('Break', 100);
 		$this->RegisterPropertyString('Picture_Path', "");
 		
+		// Message Telegram    
+        	$this->RegisterPropertyBoolean('CheckTelegram', false);
+		$this->RegisterPropertyInteger('TelegramID', null);
+		
 		//Logging
 		$this->RegisterPropertyBoolean('Logging', false);
 		$this->RegisterPropertyString('Title', "");
