@@ -24,7 +24,7 @@
       "items": [     
 	{"type": "CheckBox", "name": "CheckTelegram", "caption": "Send alarm picture by Telegram Messenger?"},
 	      
-	{"type": "SelectInstance", "name": "TelegramID", "caption": "ID Telegram:" }
+	{"type": "SelectInstance", "name": "TelegramID", "caption": "Instance ID Telegram:" }
       ]
     },
       
