@@ -22,7 +22,7 @@
 	  
     {"type": "ExpansionPanel", "caption": "Telegram Messenger",
       "items": [     
-	{"type": "CheckBox", "name": "CheckTelegram", "caption": "Output by Telegram?"},
+	{"type": "CheckBox", "name": "CheckTelegram", "caption": "Send alarm picture by Telegram Messenger?"},
 	      
 	{"type": "SelectInstance", "name": "TelegramID", "caption": "ID Telegram:" }
       ]
