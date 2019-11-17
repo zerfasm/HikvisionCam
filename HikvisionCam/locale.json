@@ -12,8 +12,8 @@
             "Number of Pictures:": "Anzahl Bilder:",
             "Break:": "Pause zwischen Bildern:",
             "Title:": "Titel:",
-            "Path Pictures:": "Bildpfad:"
-            "Send alarm picture by Telegram Messenger?": "Alarmbilder mit Telegram Messenger versenden?",
+            "Path Pictures:": "Bildpfad:",
+            "Send alarm picture by Telegram Messenger?": "Alarmbilder mit Telegram Messenger versenden?"
         }
     }
 }
