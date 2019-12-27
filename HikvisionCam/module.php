@@ -42,7 +42,7 @@ class HikvisionCam extends IPSModule
 		parent::ApplyChanges();  
 		
 		// Trigger Auslöser
-		$this->RegisterTrigger("Auslöser", "TriggerAusloeser", 0, $Instance, 0,"SRHC_Update(\$_IPS['TARGET']);");
+		$this->RegisterTrigger("Auslöser", "TriggerAusloeser", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
 	}
 	
 	public function Update()
