@@ -13,6 +13,7 @@
             "Break:": "Pause zwischen Bildern:",
             "Title:": "Titel:",
             "Path Pictures:": "Bildpfad:",
+            "Trigger:": "Auslöser:",
             "Send alarm picture by Telegram Messenger?": "Alarmbilder mit Telegram Messenger versenden?"
         }
     }
