@@ -31,9 +31,12 @@ class HikvisionCam extends IPSModule
         	$this->RegisterPropertyBoolean('CheckTelegram', false);
 		$this->RegisterPropertyInteger('TelegramID', null);
 		
-		//Logging
+		// Logging
 		$this->RegisterPropertyBoolean('Logging', false);
 		$this->RegisterPropertyString('Title', "");
+		
+		// Trigger
+		$this->RegisterTimer('UpdateTrigger', 0, "HKVC_Update(\$_IPS['TARGET']);");
 	}
 
 	public function ApplyChanges()
@@ -41,6 +44,9 @@ class HikvisionCam extends IPSModule
 		//Never delete this line!
 		parent::ApplyChanges();  
 		
+		// ID Instanz
+		$Instance = $this->InstanceID;
+
 		// Trigger Auslöser
 		$this->RegisterTrigger("Auslöser", "TriggerAusloeser", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
 	}
