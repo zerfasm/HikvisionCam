@@ -16,8 +16,8 @@
 	{"type": "ValidationTextBox", "name": "URLSnapshot", "caption": "URL Snapshot:" },
 	{"type": "ValidationTextBox", "name": "Picture_Path", "caption": "Path Pictures:" },
 	{"type": "ValidationTextBox", "name": "No_Picture", "caption": "Number of Pictures:" },
-	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" };
-	{"type": "SelectVariable", "name": "Trigger", "caption": "Trigger:" };	      
+	{"type": "ValidationTextBox", "name": "Break", "caption": "Break:" },
+	{"type": "SelectVariable", "name": "Trigger", "caption": "Trigger:" }	      
       ]
     },
 	  
