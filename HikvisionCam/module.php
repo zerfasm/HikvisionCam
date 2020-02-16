@@ -22,8 +22,8 @@ class HikvisionCam extends IPSModule
 		
 		// Snapshot Parameter
 		$this->RegisterPropertyString('URLSnapshot', "http://ip/Streaming/channels/1/picture");
-		$this->RegisterPropertyInteger('No_Picture', 6);
-		$this->RegisterPropertyInteger('Break', 100);
+		$this->RegisterPropertyInteger('No_Picture', 10);
+		$this->RegisterPropertyInteger('Break', 50);
 		$this->RegisterPropertyString('Picture_Path', "");
 		$this->RegisterPropertyInteger('TriggerID', null);
 		
