@@ -17,11 +17,11 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyString('Name', "Hikvision Cam");
 		$this->RegisterPropertyString('UserName', "admin");
 		$this->RegisterPropertyString('UserPassword', "");
-		$this->RegisterPropertyString('ISAPI_Target', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
-		$this->RegisterPropertyString('ISAPI_Start', "/ISAPI/PTZCtrl/channels/1/presets/2/goto");
+		//$this->RegisterPropertyString('ISAPI_Target', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
+		//$this->RegisterPropertyString('ISAPI_Start', "/ISAPI/PTZCtrl/channels/1/presets/2/goto");
 		
 		// Snapshot Parameter
-		$this->RegisterPropertyString('URLSnapshot', "http://ip/Streaming/channels/1/picture");
+		//$this->RegisterPropertyString('URLSnapshot', "http://ip/Streaming/channels/1/picture");
 		$this->RegisterPropertyInteger('No_Picture', 10);
 		$this->RegisterPropertyInteger('Break', 50);
 		$this->RegisterPropertyString('Picture_Path', "");
@@ -76,17 +76,17 @@ class HikvisionCam extends IPSModule
 		$pass = $this->ReadPropertyString('UserPassword');
 
 		//URL Snapshot
-		$url = $this->ReadPropertyString('URLSnapshot');
+		$url = "http://$this->ReadPropertyString('IPAdress')/Streaming/channels/1/picture";
 
 		//ISAPI Target
-		$ISAPI_Target = $this->ReadPropertyString('ISAPI_Target');
+		//$ISAPI_Target = $this->ReadPropertyString('ISAPI_Target');
 		//$ZielPos = $this->ReadPropertyInteger('ZielPos');
-		//$ISAPI_Target = "/ISAPI/PTZCtrl/channels/1/presets/$ZielPos/goto";
+		$ISAPI_Target = "/ISAPI/PTZCtrl/channels/1/presets/$this->ReadPropertyInteger('ZielPos')/goto";
 		
 		//ISAPI Start
-		$ISAPI_Start = $this->ReadPropertyString('ISAPI_Start');
+		//$ISAPI_Start = $this->ReadPropertyString('ISAPI_Start');
 		//$StartPos = $this->ReadPropertyInteger('StartPos');
-		//$ISAPI_Start = "/ISAPI/PTZCtrl/channels/1/presets/$StartPos/goto";
+		$ISAPI_Start = "/ISAPI/PTZCtrl/channels/1/presets/$this->ReadPropertyInteger('StartPos')/goto";
 			
 		//IP-Adress
 		$IP = $this->ReadPropertyString('IPAdress');
