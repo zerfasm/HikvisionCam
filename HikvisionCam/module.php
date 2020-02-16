@@ -52,6 +52,10 @@ class HikvisionCam extends IPSModule
 		{
 			$this->RegisterTrigger("Auslöser", "TriggerAusloeser", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
 		};
+		
+		//Kameraname
+		$camname = $this->ReadPropertyString('Name');
+		
 	}
 	
 	public function Update()
