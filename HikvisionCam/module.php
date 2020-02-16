@@ -80,11 +80,13 @@ class HikvisionCam extends IPSModule
 
 		//ISAPI Target
 		//$ISAPI_Target = $this->ReadPropertyString('ISAPI');
-		$ISAPI_Target = "/ISAPI/PTZCtrl/channels/1/presets/$this->ReadPropertyString('ZielPos')/goto";
+		$ZielPos = $this->ReadPropertyString('ZielPos');
+		$ISAPI_Target = "/ISAPI/PTZCtrl/channels/1/presets/$ZielPos/goto";
 		
 		//ISAPI Start
 		//$ISAPI_Start = $this->ReadPropertyString('ISAPI_Start');
-		$ISAPI_Start = "/ISAPI/PTZCtrl/channels/1/presets/$this->ReadPropertyString('StartPos')/goto";
+		$StartPos = $this->ReadPropertyString('StartPos');
+		$ISAPI_Start = "/ISAPI/PTZCtrl/channels/1/presets/$StartPos/goto";
 			
 		//IP-Adress
 		$IP = $this->ReadPropertyString('IPAdress');
