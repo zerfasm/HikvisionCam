@@ -63,6 +63,7 @@ class HikvisionCam extends IPSModule
 			[5, 'Position 5', 'Information', ''],
         	];
         	$this->RegisterProfile(vtInteger, 'HKVC.CamPosition', 'Information', 'Information', '', 0, 0, 0, 0, $association);
+		$this->MaintainVariable('Cam Position', 'Kamera Position', vtInteger, 'HKVC.CamPositionhr', 1, '');
 	}
 	
 	public function Update()
