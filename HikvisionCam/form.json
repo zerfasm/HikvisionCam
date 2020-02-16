@@ -5,7 +5,7 @@
 	{"type": "ValidationTextBox", "name": "Name", "caption": "Name Cam:" },
         {"type": "ValidationTextBox", "name": "IPAdress", "caption": "IP-Adress:" },
 	{"type": "ValidationTextBox", "name": "UserName", "caption": "User:" },
-        {"type": "PasswordTextBox", "name": "UserPassword", "caption": "Password:" },
+        {"type": "PasswordTextBox", "name": "UserPassword", "caption": "Password:" }
 	//{"type": "ValidationTextBox", "name": "ISAPI_Start", "caption": "ISAPI Start:" },
 	//{"type": "ValidationTextBox", "name": "ISAPI_Target", "caption": "ISAPI Target:" }
       ]
