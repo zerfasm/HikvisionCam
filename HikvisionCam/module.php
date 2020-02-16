@@ -17,8 +17,8 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyString('Name', "Hikvision Cam");
 		$this->RegisterPropertyString('UserName', "admin");
 		$this->RegisterPropertyString('UserPassword', "");
-		$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
-		$this->RegisterPropertyString('ISAPI_Start', "/ISAPI/PTZCtrl/channels/1/presets/1/got");
+		//$this->RegisterPropertyString('ISAPI', "/ISAPI/PTZCtrl/channels/1/presets/1/goto");
+		//$this->RegisterPropertyString('ISAPI_Start', "/ISAPI/PTZCtrl/channels/1/presets/2/goto");
 		
 		// Snapshot Parameter
 		$this->RegisterPropertyString('URLSnapshot', "http://ip/Streaming/channels/1/picture");
@@ -79,11 +79,13 @@ class HikvisionCam extends IPSModule
 		$url = $this->ReadPropertyString('URLSnapshot');
 
 		//ISAPI Target
-		$ISAPI = $this->ReadPropertyString('ISAPI');
+		//$ISAPI_Target = $this->ReadPropertyString('ISAPI');
+		$ISAPI_Target = "/ISAPI/PTZCtrl/channels/1/presets/$this->ReadPropertyString('ZielPos')/goto";
 		
 		//ISAPI Start
-		$ISAPI_Start = $this->ReadPropertyString('ISAPI_Start');
-
+		//$ISAPI_Start = $this->ReadPropertyString('ISAPI_Start');
+		$ISAPI_Start = "/ISAPI/PTZCtrl/channels/1/presets/$this->ReadPropertyString('StartPos')/goto";
+			
 		//IP-Adress
 		$IP = $this->ReadPropertyString('IPAdress');
 		
@@ -118,7 +120,7 @@ class HikvisionCam extends IPSModule
 		}
 		else
 		{
-		    $header  = "PUT $ISAPI HTTP/1.1\r\n";
+		    $header  = "PUT $ISAPI_Target HTTP/1.1\r\n";
 		    $header .= "Authorization: Basic ".base64_encode("$user:$pass")."\r\n";
 		    $header .= "User-Agent: php-script\r\n";
 		    $header .= "Host: $IP\r\n";
