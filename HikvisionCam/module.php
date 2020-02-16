@@ -48,7 +48,10 @@ class HikvisionCam extends IPSModule
 		$Instance = $this->InstanceID;
 
 		// Trigger Auslöser
-		$this->RegisterTrigger("Auslöser", "TriggerAusloeser", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
+		If ($this->ReadPropertyInteger('TriggerID') > NULL)
+		{
+			$this->RegisterTrigger("Auslöser", "TriggerAusloeser", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
+		};
 	}
 	
 	public function Update()
