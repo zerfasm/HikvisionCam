@@ -69,6 +69,9 @@ class HikvisionCam extends IPSModule
 	
 	public function Update()
     	{
+		//IP-Adress
+		$IP = $this->ReadPropertyString('IPAdress');
+		
 		//User
 		$user = $this->ReadPropertyString('UserName');
 
@@ -76,21 +79,18 @@ class HikvisionCam extends IPSModule
 		$pass = $this->ReadPropertyString('UserPassword');
 
 		//URL Snapshot
-		$url = "http://$this->ReadPropertyString('IPAdress')/Streaming/channels/1/picture";
+		$url = "http://$IP/Streaming/channels/1/picture";
 
 		//ISAPI Target
 		//$ISAPI_Target = $this->ReadPropertyString('ISAPI_Target');
-		//$ZielPos = $this->ReadPropertyInteger('ZielPos');
-		$ISAPI_Target = "/ISAPI/PTZCtrl/channels/1/presets/$this->ReadPropertyInteger('ZielPos')/goto";
+		$ZielPos = $this->ReadPropertyInteger('ZielPos');
+		$ISAPI_Target = "/ISAPI/PTZCtrl/channels/1/presets/$ZielPos/goto";
 		
 		//ISAPI Start
 		//$ISAPI_Start = $this->ReadPropertyString('ISAPI_Start');
-		//$StartPos = $this->ReadPropertyInteger('StartPos');
-		$ISAPI_Start = "/ISAPI/PTZCtrl/channels/1/presets/$this->ReadPropertyInteger('StartPos')/goto";
+		$StartPos = $this->ReadPropertyInteger('StartPos');
+		$ISAPI_Start = "/ISAPI/PTZCtrl/channels/1/presets/$StartPos/goto";
 			
-		//IP-Adress
-		$IP = $this->ReadPropertyString('IPAdress');
-		
 		//Anzahl Bilder
 		$anz_bilder = $this->ReadPropertyInteger('No_Picture');
 		
