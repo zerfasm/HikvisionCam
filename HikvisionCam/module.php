@@ -52,6 +52,17 @@ class HikvisionCam extends IPSModule
 		{
 			$this->RegisterTrigger("Auslöser", "TriggerAusloeser", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
 		};
+		
+		// Profile "SCHB.Ventilate"
+        	$association = [
+            		[0, 'Position 0', 'Information', ''],
+            		[1, 'Position 1', 'Information', ''],
+			[2, 'Position 2', 'Information', ''],
+			[3, 'Position 3', 'Information', ''],
+			[4, 'Position 4', 'Information', ''],
+			[5, 'Position 5', 'Information', ''],
+        	];
+        	$this->RegisterProfile(vtInteger, 'HKVC.CamPosition', 'Information', 'Information', '', 0, 0, 0, 0, $association);
 	}
 	
 	public function Update()
