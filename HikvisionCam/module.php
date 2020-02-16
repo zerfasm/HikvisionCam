@@ -37,6 +37,13 @@ class HikvisionCam extends IPSModule
 		
 		// Trigger
 		//$this->RegisterTimer('UpdateTrigger', 0, "HKVC_Update(\$_IPS['TARGET']);");
+		
+		//Startposition Cam
+		$this->RegisterPropertyInteger('StartPos', 0);
+		
+		//zielposition Cam
+		$this->RegisterPropertyInteger('ZielPos', 1);		
+		
 	}
 
 	public function ApplyChanges()
@@ -52,6 +59,12 @@ class HikvisionCam extends IPSModule
 		{
 			$this->RegisterTrigger("Auslöser", "TriggerAusloeser", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
 		};
+		
+		// Variable Startposition erstellen
+		$this->MaintainVariable('StartPos', 'Posistion Start', vtInteger, '', 1, true);
+		
+		// Variable Zielposition erstellen
+		$this->MaintainVariable('ZielPos', 'Posistion Ziel', vtInteger, '', 2, true);
 	}
 	
 	public function Update()
