@@ -39,10 +39,10 @@ class HikvisionCam extends IPSModule
 		//$this->RegisterTimer('UpdateTrigger', 0, "HKVC_Update(\$_IPS['TARGET']);");
 		
 		//Startposition Cam
-		$this->RegisterPropertyInteger('StartPos', "");
+		$this->RegisterPropertyInteger('StartPos', '');
 		
 		//Zielposition Cam
-		$this->RegisterPropertyInteger('ZielPos', "");		
+		$this->RegisterPropertyInteger('ZielPos', '');		
 		
 	}
 
