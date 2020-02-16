@@ -56,7 +56,6 @@ class HikvisionCam extends IPSModule
 	
 	public function Update()
     	{
-		
 		//User
 		$user = $this->ReadPropertyString('UserName');
 
