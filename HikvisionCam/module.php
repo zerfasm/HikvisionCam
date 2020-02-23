@@ -324,7 +324,6 @@ class HikvisionCam extends IPSModule
 		if ($eid == 0) {
 		    $EventID = IPS_CreateEvent($Typ);
 			IPS_SetEventTrigger($EventID, 1, $this->ReadPropertyInteger('ZielPos'));// bei Bestimmten Wert True nur auslösen
-			IPS_SetEventTriggerValue($EventID, true); //Nur auf TRUE Werte auslösen
 			IPS_SetParent($EventID, $Parent);
 			IPS_SetIdent($EventID, $Ident);
 			IPS_SetName($EventID, $Name);
