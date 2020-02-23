@@ -14,7 +14,6 @@ class HikvisionCam extends IPSModule
 		
 		// Camera Parameter
 		$this->RegisterPropertyString('IPAdress', "");
-		$this->RegisterPropertyString('Name', "Hikvision Cam");
 		$this->RegisterPropertyString('UserName', "admin");
 		$this->RegisterPropertyString('UserPassword', "");
 		
