@@ -329,7 +329,7 @@ class HikvisionCam extends IPSModule
 			IPS_SetName($EventID, $Name);
 			IPS_SetPosition($EventID, $Position);
 			IPS_SetEventScript($EventID, $Skript); 
-			IPS_SetEventActive($EventID, true)
+			IPS_SetEventActive($EventID, true);  
 		}
 	}
 }
