@@ -230,7 +230,23 @@ class HikvisionCam extends IPSModule
 	
 	public function Position()
     	{
-				//Go to preset
+		//IP-Adress
+		$IP = $this->ReadPropertyString('IPAdress');
+		
+		//User
+		$user = $this->ReadPropertyString('UserName');
+
+		//Password
+		$pass = $this->ReadPropertyString('UserPassword');
+
+		//URL Snapshot
+		$url = "http://$IP/Streaming/channels/1/picture";
+
+		//ISAPI Target
+		$ZielPos = GetValue($this->GetIDForIdent('ZielPos'));
+		$ISAPI_Target = "/ISAPI/PTZCtrl/channels/1/presets/$ZielPos/goto";
+				
+		//Go to preset
 		$xml_data = '<PTZPreset version="2.0" xmlns="http://www.isapi.org/ver20/XMLSchema">              
 		</PTZPreset>'."\r\n";
 
@@ -242,7 +258,7 @@ class HikvisionCam extends IPSModule
 		}
 		else
 		{
-		    $header  = "PUT $ISAPI_Start HTTP/1.1\r\n";
+		    $header  = "PUT $ISAPI_Ziel HTTP/1.1\r\n";
 		    $header .= "Authorization: Basic ".base64_encode("$user:$pass")."\r\n";
 		    $header .= "User-Agent: php-script\r\n";
 		    $header .= "Host: $IP\r\n";
