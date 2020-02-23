@@ -35,8 +35,6 @@
 	
   "actions": [
     {"type": "Label", "caption": "Snapshot erstellen!" },
-    {"type": "Button", "caption": "SNAPSHOT", "onClick": "HKVC_Update($id);" },
-    {"type": "Label", "caption": "Fahre zu Position!" }, 
-    {"type": "Button", "caption": "POSITION", "onClick": "HKVC_Position($id);" }
+    {"type": "Button", "caption": "SNAPSHOT", "onClick": "HKVC_Update($id);" }
   ]
 }
