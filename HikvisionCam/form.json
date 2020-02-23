@@ -2,7 +2,6 @@
   "elements": [
     {"type": "ExpansionPanel", "caption": "Camera Parameter",
       "items": [
-	//{"type": "ValidationTextBox", "name": "Name", "caption": "Name Cam:" },
         {"type": "ValidationTextBox", "name": "IPAdress", "caption": "IP-Adress:" },
 	{"type": "ValidationTextBox", "name": "UserName", "caption": "User:" },
         {"type": "PasswordTextBox", "name": "UserPassword", "caption": "Password:" }
