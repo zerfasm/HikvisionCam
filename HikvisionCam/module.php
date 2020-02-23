@@ -259,7 +259,7 @@ class HikvisionCam extends IPSModule
 		}
 		else
 		{
-		    $header  = "PUT $ISAPI_Ziel HTTP/1.1\r\n";
+		    $header  = "PUT $ISAPI_Target HTTP/1.1\r\n";
 		    $header .= "Authorization: Basic ".base64_encode("$user:$pass")."\r\n";
 		    $header .= "User-Agent: php-script\r\n";
 		    $header .= "Host: $IP\r\n";
