@@ -62,7 +62,7 @@ class HikvisionCam extends IPSModule
 		
 		// Variable Zielposition erstellen
 		$this->MaintainVariable('ZielPos', 'Zielposition', vtInteger, '', 2, true);
-		$this->RegisterTrigger("Position", "TriggerZielposition", 0, $Instance, 0,"HKVC_Position(\$_IPS['TARGET']);");
+		$this->RegisterTriggerZiel("Position", "TriggerZielposition", 0, $Instance, 0,"HKVC_Position(\$_IPS['TARGET']);");
 	}
 	
 	public function Update()
@@ -310,7 +310,7 @@ class HikvisionCam extends IPSModule
 		}
 	}
 	
-	private function RegisterTriggerZielposition($Name, $Ident, $Typ, $Parent, $Position, $Skript)
+	private function RegisterTriggerZiel($Name, $Ident, $Typ, $Parent, $Position, $Skript)
 	{
 		$eid = @$this->GetIDForIdent($Ident);
 		if($eid === false) {
