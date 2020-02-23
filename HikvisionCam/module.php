@@ -323,8 +323,8 @@ class HikvisionCam extends IPSModule
 		//we need to create one
 		if ($eid == 0) {
 		    $EventID = IPS_CreateEvent($Typ);
-			//IPS_SetEventTrigger($EventID, 1, $this->GetIDForIdent('ZielPos'));
-			IPS_SetEventTrigger($EventID, 1,$this->ReadPropertyInteger('ZielPos'));
+			IPS_SetEventTrigger($EventID, 1, $this->GetIDForIdent('ZielPos'));
+			//IPS_SetEventTrigger($EventID, 1,$this->ReadPropertyInteger('ZielPos'));
 			IPS_SetParent($EventID, $Parent);
 			IPS_SetIdent($EventID, $Ident);
 			IPS_SetName($EventID, $Name);
