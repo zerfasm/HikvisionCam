@@ -293,16 +293,6 @@ class HikvisionCam extends IPSModule
 		}
 	}
 	
-	public function Action()
-    	{
-		$this->RegisterAction("Aktion", "EigeneAktion", 0, '', 0,"HKVC_Action(\$_IPS['TARGET']);");
-	}
-	
-	private function RegisterAction($Name, $Ident, $Typ, $Parent)
-	{
-		IPS_SetVariableCustomAction($this->GetIDForIdent('ZielPos'), 0);
-	}
-	
 	private function RegisterTrigger($Name, $Ident, $Typ, $Parent, $Position, $Skript)
 	{
 		$eid = @$this->GetIDForIdent($Ident);
@@ -348,6 +338,7 @@ class HikvisionCam extends IPSModule
 			IPS_SetPosition($EventID, $Position);
 			IPS_SetEventScript($EventID, $Skript); 
 			IPS_SetEventActive($EventID, true); 
+			IPS_SetVariableCustomAction($EventID, 51592);
 		}
 	}
 	
