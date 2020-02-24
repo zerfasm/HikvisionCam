@@ -98,7 +98,7 @@ class HikvisionCam extends IPSModule
 		//Anzahl Bilder
 		$anz_bilder = $this->ReadPropertyInteger('No_Picture');
 		
-		//Bildverzeichnis
+		//Kameraname / Kameraposition
 		$name_cam = $this->ReadPropertyString('Name');
 		
 		//Bildpfad
