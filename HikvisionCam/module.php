@@ -346,7 +346,7 @@ class HikvisionCam extends IPSModule
 	
 	private function RegisterMedia($Name, $Ident, $Typ, $Parent)
 	{
-		//IP-Adress
+	    	//IP-Adress
 		$IP = $this->ReadPropertyString('IPAdress');
 		
 		//User
