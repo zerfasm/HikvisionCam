@@ -346,9 +346,19 @@ class HikvisionCam extends IPSModule
 	
 	private function RegisterMedia($Name, $Ident, $Typ, $Parent)
 	{
-		$EventID = IPS_CreateMedia(3);
-		IPS_SetMediaFile($EventID, "rtsp://admin:2144Jogger!@192.168.2.62:554/ch1/main/av_stream", true);   // Image im MedienPool mit Image-Datei verbinden
-		IPS_SetName($EventID, "Kamera Eingang Test");                 // Medienobjekt benennen
-		IPS_SetParent($EventID, $Parent);                 // Medienobjekt einsortieren unter dem Objekt mit der ID "12345"
+		$eid = @$this->GetIDForIdent($Ident);
+		if($eid === false) {
+			$eid = 0;
+		} elseif(IPS_GetEvent($eid)['EventType'] <> $Typ) {
+			IPS_DeleteEvent($eid);
+			$eid = 0;
+		}
+		
+		//we need to create one
+		if ($eid == 0) {
+			$EventID = IPS_CreateMedia(3);
+			IPS_SetMediaFile($EventID, "rtsp://admin:2144Jogger!@192.168.2.62:554/ch1/main/av_stream", true);   // Image im MedienPool mit Image-Datei verbinden
+			IPS_SetName($EventID, "Kamera Eingang Test"); // Medienobjekt benennen
+		}
 	}
 }
