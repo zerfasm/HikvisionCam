@@ -31,6 +31,9 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyBoolean('Logging', false);
 		$this->RegisterPropertyString('Title', "");
 		
+		// Media
+		$this->RegisterPropertyBoolean('Media', false);
+		
 		// Trigger
 		//$this->RegisterTimer('UpdateTrigger', 0, "HKVC_Update(\$_IPS['TARGET']);");
 		
@@ -62,6 +65,11 @@ class HikvisionCam extends IPSModule
 		// Variable Zielposition erstellen
 		$this->MaintainVariable('ZielPos', 'Zielposition', vtInteger, '', 2, true);
 		$this->RegisterTriggerZiel("Position", "TriggerZielposition", 0, $Instance, 0,"HKVC_Position(\$_IPS['TARGET']);");
+		
+		If ($this->ReadPropertyBoolean('Media') = True)
+		{
+			$this->RegisterMedia("Media", "Mediadatei", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
+		};
 	}
 	
 	public function Update()
@@ -331,5 +339,13 @@ class HikvisionCam extends IPSModule
 			IPS_SetEventScript($EventID, $Skript); 
 			IPS_SetEventActive($EventID, true);  
 		}
+	}
+	
+	private function RegisterMedia($Name, $Ident, $Typ, $Parent, $Position, $Skript)
+	{
+		$EventID = IPS_CreateMedia(3);
+		IPS_SetMediaFile($EventID, "rtsp://admin:2144Jogger!@192.168.2.62:554/ch1/main/av_stream", true);   // Image im MedienPool mit Image-Datei verbinden
+		IPS_SetName($EventID, "Kamera Eingang Test");                 // Medienobjekt benennen
+		IPS_SetParent($EventID, $Parent);                 // Medienobjekt einsortieren unter dem Objekt mit der ID "12345"
 	}
 }
