@@ -356,7 +356,7 @@ class HikvisionCam extends IPSModule
 		$pass = $this->ReadPropertyString('UserPassword');
 		
 		$EventID = IPS_CreateMedia(3);
-		IPS_SetMediaFile($EventID, "rtsp://$user:$pass!@$IP:554/ch1/main/av_stream", true);   // Image im MedienPool mit Image-Datei verbinden
+		IPS_SetMediaFile($EventID, "rtsp://$user:$pass@$IP:554/ch1/main/av_stream", true);   // Image im MedienPool mit Image-Datei verbinden
 		IPS_SetName($EventID, "IP Cam"); // Medienobjekt benennen
 	}
 }
