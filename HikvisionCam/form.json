@@ -4,8 +4,7 @@
       "items": [
         {"type": "ValidationTextBox", "name": "IPAdress", "caption": "IP-Adress:" },
 	{"type": "ValidationTextBox", "name": "UserName", "caption": "User:" },
-        {"type": "PasswordTextBox", "name": "UserPassword", "caption": "Password:" },
-	{"type": "CheckBox", "name": "Media", "caption": "Media?" }
+        {"type": "PasswordTextBox", "name": "UserPassword", "caption": "Password:" }
       ]
     },
   
@@ -38,6 +37,7 @@
     {"type": "Label", "caption": "Snapshot erstellen!" },
     {"type": "Button", "caption": "SNAPSHOT", "onClick": "HKVC_Update($id);" },
     {"type": "Label", "caption": "Media erstellen!" },
+    {"type": "CheckBox", "name": "Media", "caption": "Media?" },
     {"type": "Button", "caption": "Media", "onClick": "HKVC_Media($id);" }	  
   ]
 }
