@@ -49,7 +49,7 @@ class HikvisionCam extends IPSModule
 		//Media Datei anlegen
 		$update = $this->ReadPropertyBoolean('Media');
         	if ($update == true) {
-            		$this->RegisterMedia("Media", "Mediadatei", 0, $Instance, 0,"HKVC_Media(\$_IPS['TARGET']);");
+            		$this->RegisterMedia("Media", "Mediadatei", 0, '', 0,"HKVC_Media(\$_IPS['TARGET']);");
         	}
 	}
 
@@ -344,7 +344,7 @@ class HikvisionCam extends IPSModule
 		}
 	}
 	
-	private function RegisterMedia($Name, $Ident, $Typ, $Parent, $Position, $Skript)
+	private function RegisterMedia($Name, $Ident, $Typ, $Parent)
 	{
 		$EventID = IPS_CreateMedia(3);
 		IPS_SetMediaFile($EventID, "rtsp://admin:2144Jogger!@192.168.2.62:554/ch1/main/av_stream", true);   // Image im MedienPool mit Image-Datei verbinden
