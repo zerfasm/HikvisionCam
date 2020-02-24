@@ -47,10 +47,7 @@ class HikvisionCam extends IPSModule
 	public function Media()
 	{
 		//Media Datei anlegen
-		$update = $this->ReadPropertyBoolean('Media');
-        	if ($update == true) {
-            		$this->RegisterMedia("Media", "Mediadatei", 0, '', 0,"HKVC_Media(\$_IPS['TARGET']);");
-        	}
+            	$this->RegisterMedia("Media", "Mediadatei", 0, '', 0,"HKVC_Media(\$_IPS['TARGET']);");
 	}
 
 	public function ApplyChanges()
