@@ -2,6 +2,7 @@
     "translations": {
         "de": {
             "Camera Parameter": "Kamera Parameter",
+            "Name Cam:": "Kameraname:",
             "IP-Adress:": "IP-Adresse",
             "Camera Parameter": "Kamera Parameter",
             "User:": "Benutzer:",
