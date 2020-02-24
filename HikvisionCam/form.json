@@ -37,7 +37,6 @@
     {"type": "Label", "caption": "Snapshot erstellen!" },
     {"type": "Button", "caption": "SNAPSHOT", "onClick": "HKVC_Update($id);" },
     {"type": "Label", "caption": "RTSP Stream unter Media Dateien erstellen!" },
-    {"type": "Button", "caption": "Media", "onClick": "HKVC_Media($id);" },
-    {"type": "Button", "caption": "Eigene Aktion", "onClick": "HKVC_Action($id);" }	  
+    {"type": "Button", "caption": "Media", "onClick": "HKVC_Media($id);" }	  
   ]
 }
