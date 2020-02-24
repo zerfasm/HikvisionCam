@@ -4,7 +4,8 @@
       "items": [
         {"type": "ValidationTextBox", "name": "IPAdress", "caption": "IP-Adress:" },
 	{"type": "ValidationTextBox", "name": "UserName", "caption": "User:" },
-        {"type": "PasswordTextBox", "name": "UserPassword", "caption": "Password:" }
+        {"type": "PasswordTextBox", "name": "UserPassword", "caption": "Password:" },
+	{"type": "CheckBox", "name": "Media", "caption": "Media?" }
       ]
     },
   
