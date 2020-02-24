@@ -295,7 +295,7 @@ class HikvisionCam extends IPSModule
 	
 	public function Action()
     	{
-		$this->RegisterAction("Aktion", "EigeneAktion", 0, '', 0,"HKVC_Aktion(\$_IPS['TARGET']);");
+		$this->RegisterAction("Aktion", "EigeneAktion", 0, '', 0,"HKVC_Action(\$_IPS['TARGET']);");
 	}
 	
 	private function RegisterAction($Name, $Ident, $Typ, $Parent)
