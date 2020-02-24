@@ -41,14 +41,16 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyInteger('StartPos', 0);
 		
 		//Zielposition Cam
-		$this->RegisterPropertyInteger('ZielPos', 0);	
-		
+		$this->RegisterPropertyInteger('ZielPos', 0);		
+	}
+	
+	puplic function Media()
+	{
 		//Media Datei anlegen
 		$update = $this->ReadPropertyBoolean('Media');
         	if ($update == true) {
-            		$this->RegisterMedia("Media", "Mediadatei", 0, $Instance, 0,"HKVC_Update(\$_IPS['TARGET']);");
+            		$this->RegisterMedia("Media", "Mediadatei", 0, $Instance, 0,"HKVC_Media(\$_IPS['TARGET']);");
         	}
-		
 	}
 
 	public function ApplyChanges()
