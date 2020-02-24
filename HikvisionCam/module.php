@@ -300,7 +300,7 @@ class HikvisionCam extends IPSModule
 	
 	private function RegisterAction($Name, $Ident, $Typ, $Parent)
 	{
-		IPS_SetVariableCustomAction($this->ReadPropertyInteger('ZielPos'), NULL);
+		IPS_SetVariableCustomAction($this->GetIDForIdent('ZielPos'), 0);
 	}
 	
 	private function RegisterTrigger($Name, $Ident, $Typ, $Parent, $Position, $Skript)
