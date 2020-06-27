@@ -204,7 +204,7 @@ class HikvisionCam extends IPSModule
 			If ($telegram == true)
 			{
 				//Telegram senden
-				$text 	= $name_cam " ".date("d.m.y - H:i:s");
+				$text 	= $name_cam.date(" d.m.y - H:i:s");
 				$titel	= 'Alarm';
 				$tele_user = GetValue(58854);
 				Telegram_SendImage($telegramID, $text, $file, $tele_user);
