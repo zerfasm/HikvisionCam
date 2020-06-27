@@ -110,6 +110,10 @@ class HikvisionCam extends IPSModule
 		//Logging
 		$log = $this->ReadPropertyBoolean('Logging'); 
 		
+		//Telegram
+		$telegram = $this->ReadPropertyBoolean('CheckTelegram'); 
+		$telegramID = $this->ReadPropertyInteger('TelegramID'); 
+		
 		//Messagetexte und Titel
 		$text 	= $this->ReadPropertyString('Name')." - ".date("d.m.y - H:i:s");
 		$titel	= $this->ReadPropertyString('Title');
@@ -194,6 +198,16 @@ class HikvisionCam extends IPSModule
 				//Meldung im IPS Logger
 				IPSUtils_Include ("IPSLogger.inc.php", "IPSLibrary::app::core::IPSLogger");
 				IPSLogger_Not($titel, $text); 
+			}
+			
+			//Telegram Off / On
+			If ($telegram == true)
+			{
+				//Telegram senden
+				$text 	= $name_cam " ".date("d.m.y - H:i:s");
+				$titel	= 'Alarm';
+				$tele_user = GetValue(58854);
+				Telegram_SendImage($telegramID, $text, $file, $tele_user);
 			}
 		}
 		
