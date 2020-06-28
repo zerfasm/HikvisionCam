@@ -25,6 +25,12 @@
 	{"type": "SelectVariable", "name": "TelegramUser", "caption": "User ID Telegram:" }	      
       ]
     },
+    
+    {"type": "ExpansionPanel", "caption": "Alarm",
+      "items": [     
+	{"type": "SelectVariable", "name": "AlarmID", "caption": "Alarm ID:" }	      
+      ]
+    },
       
     {"type": "ExpansionPanel", "caption": "Logging",
       "items": [
