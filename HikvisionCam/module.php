@@ -209,7 +209,7 @@ class HikvisionCam extends IPSModule
 			}
 			
 			//Telegram Off / On
-			If ($alarmID == true)
+			If (GetValue($alarmID) == true)
 			{	
 				If ($telegram == true)
 				{
