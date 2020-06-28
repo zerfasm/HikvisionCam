@@ -29,6 +29,9 @@ class HikvisionCam extends IPSModule
 		$this->RegisterPropertyInteger('TelegramID', null);
 		$this->RegisterPropertyInteger('TelegramUser', 0);
 		
+		// Alarm   
+		$this->RegisterPropertyInteger('AlarmID', 0);
+		
 		// Logging
 		$this->RegisterPropertyBoolean('Logging', false);
 		$this->RegisterPropertyString('Title', "");
@@ -115,6 +118,9 @@ class HikvisionCam extends IPSModule
 		$telegram = $this->ReadPropertyBoolean('CheckTelegram'); 
 		$telegramID = $this->ReadPropertyInteger('TelegramID');
 		$telegramUser = $this->ReadPropertyInteger('TelegramUser');
+		
+		//Alarm
+		$alarmID = $this->ReadPropertyInteger('AlarmID');
 		
 		//Messagetexte und Titel
 		$text 	= $this->ReadPropertyString('Name')." - ".date("d.m.y - H:i:s");
@@ -203,10 +209,13 @@ class HikvisionCam extends IPSModule
 			}
 			
 			//Telegram Off / On
-			If ($telegram == true)
-			{
-				//Telegram senden
-				Telegram_SendImage($telegramID, $name_cam.date(" - d.m.y - H:i:s"), $file, GetValue($telegramUser));
+			If ($alarmID == true)
+			{	
+				If ($telegram == true)
+				{
+					//Telegram senden
+					Telegram_SendImage($telegramID, $name_cam.date(" - d.m.y - H:i:s"), $file, GetValue($telegramUser));
+				}
 			}
 		}
 		
