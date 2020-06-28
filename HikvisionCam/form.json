@@ -28,7 +28,7 @@
     
     {"type": "ExpansionPanel", "caption": "Alarmanlage",
       "items": [     
-	{"type": "SelectVariable", "name": "AlarmID", "caption": "Alarmanlage Aktiv ID:" }	      
+	{"type": "SelectVariable", "name": "AlarmID", "caption": "Status Alarmanlage ID:" }	      
       ]
     },
       
