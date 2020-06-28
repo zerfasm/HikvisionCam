@@ -120,7 +120,7 @@ class HikvisionCam extends IPSModule
 		$telegramUser = $this->ReadPropertyInteger('TelegramUser');
 		
 		//Alarm
-		$alarm_activ = $this->ReadPropertyInteger('AlarmID');
+		$alarm_activ = GetValue($this->ReadPropertyInteger('AlarmID'));
 		
 		//Messagetexte und Titel
 		$text 	= $this->ReadPropertyString('Name')." - ".date("d.m.y - H:i:s");
@@ -209,7 +209,7 @@ class HikvisionCam extends IPSModule
 			}
 			
 			//Telegram Off / On
-			If (GetValue($alarm_activ) == true)
+			If ($alarm_activ == true) or ($alarm_activ == 1)
 			{	
 				If ($telegram == true)
 				{
