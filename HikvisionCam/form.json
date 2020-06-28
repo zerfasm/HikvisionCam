@@ -26,9 +26,9 @@
       ]
     },
     
-    {"type": "ExpansionPanel", "caption": "Alarm",
+    {"type": "ExpansionPanel", "caption": "Alarmanlage",
       "items": [     
-	{"type": "SelectVariable", "name": "AlarmID", "caption": "Alarm Aktiv ID:" }	      
+	{"type": "SelectVariable", "name": "AlarmID", "caption": "Alarmanlage Aktiv ID:" }	      
       ]
     },
       
