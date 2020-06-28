@@ -28,7 +28,7 @@
     
     {"type": "ExpansionPanel", "caption": "Alarm",
       "items": [     
-	{"type": "SelectVariable", "name": "AlarmID", "caption": "Alarm ID:" }	      
+	{"type": "SelectVariable", "name": "AlarmID", "caption": "Alarm Aktiv ID:" }	      
       ]
     },
       
